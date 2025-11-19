@@ -1,0 +1,30 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gradientes -->
+  <defs>
+    <linearGradient id="gradient1" x1="0" y1="0" x2="200" y2="200" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" style="stop-color:#FF7F27;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#23B574;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Logo sem fundo - aumentada 1.8x -->
+  <g transform="translate(100, 100) scale(1.8)">
+    <!-- Chat bubble principal com gradiente -->
+    <path d="M-35,-25 Q-40,-30 -35,-35 L25,-35 Q30,-30 30,-25 L30,10 Q30,15 25,20 L-10,20 L-25,35 L-25,20 L-35,20 Q-40,15 -40,10 Z" 
+          fill="url(#gradient1)" 
+          stroke="url(#gradient1)" 
+          stroke-width="3"/>
+    
+    <!-- V dentro do chat em branco -->
+    <path d="M-15,-15 L-3,8 M-3,8 L9,-15" 
+          stroke="white" 
+          stroke-width="7" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+    
+    <!-- Pontos de mensagem brancos -->
+    <circle cx="18" cy="-8" r="3" fill="white"/>
+    <circle cx="18" cy="0" r="3" fill="white"/>
+    <circle cx="18" cy="8" r="3" fill="white"/>
+  </g>
+</svg>

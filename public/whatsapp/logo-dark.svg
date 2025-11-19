@@ -1,0 +1,53 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark Mode Version -->
+  <defs>
+    <linearGradient id="darkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:hsl(164, 100%, 40%);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:hsl(280, 60%, 55%);stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="darkGlow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background Circle (dark subtle) -->
+  <circle cx="100" cy="100" r="90" fill="hsl(280, 35%, 12%)" opacity="0.6"/>
+  
+  <!-- Main WhatsApp Bubble Shape -->
+  <path d="M100 30 C140 30 170 55 170 87 C170 110 155 128 135 135 L120 170 L110 140 C50 135 30 115 30 87 C30 55 60 30 100 30 Z" 
+        fill="url(#darkGradient)" 
+        filter="url(#darkGlow)"/>
+  
+  <!-- AI Sparkle Effects (brighter in dark mode) -->
+  <g transform="translate(140, 50)">
+    <path d="M0,-8 L2,-2 L8,0 L2,2 L0,8 L-2,2 L-8,0 L-2,-2 Z" 
+          fill="white" 
+          opacity="1"/>
+  </g>
+  
+  <g transform="translate(55, 110)">
+    <path d="M0,-5 L1.5,-1.5 L5,0 L1.5,1.5 L0,5 L-1.5,1.5 L-5,0 L-1.5,-1.5 Z" 
+          fill="white" 
+          opacity="0.9"/>
+  </g>
+  
+  <!-- Additional small sparkle -->
+  <g transform="translate(125, 100)">
+    <circle cx="0" cy="0" r="2" fill="white" opacity="0.6"/>
+  </g>
+  
+  <!-- Check Mark -->
+  <g transform="translate(85, 85)">
+    <path d="M0,5 L5,10 L15,0" 
+          stroke="white" 
+          stroke-width="4.5" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" 
+          fill="none"/>
+  </g>
+</svg>

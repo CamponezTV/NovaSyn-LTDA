@@ -1,28 +1,31 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Code, Zap, TrendingUp } from "lucide-react";
+import { Code, Cpu, TrendingUp } from "lucide-react";
+import arthurImg from "@/assets/team-arthur.jpg";
+import pauloImg from "@/assets/team-paulo.jpg";
+import giovanniImg from "@/assets/team-giovanni.jpg";
 
 const teamMembers = [
   {
-    name: "Arthur Marinho",
+    name: "Arthur",
     role: "Dev & Product",
     description: "Transforma ideias em realidade, construindo sistemas e interfaces que funcionam perfeitamente.",
     icon: Code,
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=faces",
+    image: arthurImg,
   },
   {
-    name: "Paulo Henrique",
+    name: "Paulo",
     role: "Automação & IA",
     description: "Conecta tudo, integra sistemas e constrói automações inteligentes que fazem a diferença.",
-    icon: Zap,
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=faces",
+    icon: Cpu,
+    image: pauloImg,
   },
   {
-    name: "Giovanni Sartoretto",
+    name: "Giovanni",
     role: "Vendas & Estratégia",
     description: "Cuida das vendas, marketing e escalabilidade para levar a empresa ao próximo nível.",
     icon: TrendingUp,
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=faces",
+    image: giovanniImg,
   },
 ];
 

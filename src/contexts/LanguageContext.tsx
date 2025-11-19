@@ -23,8 +23,8 @@ const translations = {
     "hero.title": "Transforme seu negócio com",
     "hero.titleHighlight": "tecnologia inteligente",
     "hero.subtitle": "Desenvolvemos sites, sistemas e IAs de automação personalizadas para otimizar sua operação e impulsionar seus resultados",
-    "hero.cta": "Iniciar Projeto",
-    "hero.demo": "Ver Demonstração",
+    "hero.cta": "Quero Iniciar um Projeto",
+    "hero.products": "Ver Produtos",
     
     // Services
     "services.title": "Nossos Serviços",
@@ -92,8 +92,8 @@ const translations = {
     "hero.title": "Transform your business with",
     "hero.titleHighlight": "intelligent technology",
     "hero.subtitle": "We develop custom websites, systems, and AI automation to optimize your operations and boost your results",
-    "hero.cta": "Start Project",
-    "hero.demo": "View Demo",
+    "hero.cta": "I want to start a project",
+    "hero.products": "View Products",
     
     // Services
     "services.title": "Our Services",

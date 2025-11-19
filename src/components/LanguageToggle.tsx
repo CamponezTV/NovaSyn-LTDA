@@ -9,7 +9,7 @@ export function LanguageToggle() {
       variant="ghost"
       size="sm"
       onClick={() => setLanguage(language === "pt" ? "en" : "pt")}
-      className="rounded-full font-medium"
+      className="rounded-full font-medium text-[#6D28D9] hover:bg-[#6D28D9]/20 hover:text-[#6D28D9]"
     >
       {language === "pt" ? "🇧🇷 PT" : "🇬🇧 EN"}
     </Button>

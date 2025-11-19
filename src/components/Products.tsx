@@ -8,7 +8,7 @@ const products = [
     icon: MessageSquare,
     titleKey: "WhatsApp Copilot",
     descriptionKey: "Automação inteligente para vendas no WhatsApp 24/7",
-    link: "https://projeto-whats.vercel.app/",
+    link: "/whatsapp",
   },
   {
     icon: Bot,
@@ -66,10 +66,17 @@ const Products = () => {
               </CardHeader>
               <CardContent>
                 <Button variant="link" className="p-0 h-auto font-semibold group/btn transition-smooth" asChild>
-                  <a href={product.link} target="_blank" rel="noopener noreferrer">
-                    Saiba mais
-                    <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-2 transition-transform" />
-                  </a>
+                  {product.link.startsWith('/') ? (
+                    <a href={product.link}>
+                      Saiba mais
+                      <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-2 transition-transform" />
+                    </a>
+                  ) : (
+                    <a href={product.link} target="_blank" rel="noopener noreferrer">
+                      Saiba mais
+                      <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-2 transition-transform" />
+                    </a>
+                  )}
                 </Button>
               </CardContent>
             </Card>

@@ -1,8 +1,8 @@
 import novasynLogo from '@/assets/logos/logo_1.png';
 
-const Footer = () => {
+const WhatsAppFooter = () => {
   return (
-    <footer className="bg-background dark:bg-background py-8 border-t border-[#6D28D9]/20">
+    <footer className="bg-background dark:bg-background py-8 border-t border-[hsl(25_95%_53%_/_0.2)]">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center justify-center space-y-6">
           {/* Logo */}
@@ -24,11 +24,11 @@ const Footer = () => {
             <div className="flex items-center justify-center gap-2 mt-2 text-xs text-foreground/50">
               <span>Todos os direitos reservados</span>
               <span>·</span>
-              <a href="#" className="hover:text-[#6D28D9] transition-colors">
+              <a href="#" className="hover:text-[hsl(25_95%_53%)] transition-colors">
                 Política de Privacidade
               </a>
               <span>·</span>
-              <a href="#" className="hover:text-[#6D28D9] transition-colors">
+              <a href="#" className="hover:text-[hsl(25_95%_53%)] transition-colors">
                 Termos de Serviço
               </a>
             </div>
@@ -39,4 +39,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default WhatsAppFooter;
