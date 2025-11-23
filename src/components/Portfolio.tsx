@@ -20,7 +20,7 @@ const Portfolio = () => {
       title: t("portfolio.item2.title"),
       description: t("portfolio.item2.description"),
       image: "/xmetal-logo.jpeg",
-      link: "#",
+      link: "https://xmetal.novasyn.com.br/",
       tags: [t("portfolio.item2.tag1"), t("portfolio.item2.tag2"), t("portfolio.item2.tag3")],
     },
     {
