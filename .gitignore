@@ -7,10 +7,21 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
 dist
 dist-ssr
 *.local
+
+# Environment variables
+.env
+.env.local
+.env.production
+.env.development
+*.env
+
+# Cloudflare secrets
+cloudflare-credentials.json
 
 # Editor directories and files
 .vscode/*
@@ -22,3 +33,15 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Docker
+docker-compose.override.yml
+
+# Cache
+.cache
+.temp
+*.tmp
+
+# OS
+Thumbs.db
+Desktop.ini

@@ -7,11 +7,18 @@
     "dev": "vite",
     "build": "vite build",
     "build:dev": "vite build --mode development",
+    "build:check": "tsc --noEmit",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest",
     "test:ui": "vitest --ui",
-    "test:coverage": "vitest --coverage"
+    "test:coverage": "vitest --coverage",
+    "security:audit": "npm audit --audit-level=moderate",
+    "security:check": "bash security-check.sh",
+    "docker:build": "docker build -t novasyn-web .",
+    "docker:scan": "docker scan novasyn-web:latest",
+    "docker:run": "docker-compose up -d",
+    "docker:stop": "docker-compose down"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

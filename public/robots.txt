@@ -10,5 +10,16 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
+# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
+
+# Disallow admin pages
+Disallow: /admin/
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://novasyn.com.br/sitemap.xml
+
+# Crawl delay (optional - in seconds)
+Crawl-delay: 1

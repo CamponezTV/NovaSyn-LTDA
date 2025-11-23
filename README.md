@@ -471,6 +471,103 @@ Este projeto é propriedade da Nova Syn LTDA. Todos os direitos reservados.
 - ✅ **Links externos seguros** - target="_blank" com rel="noopener noreferrer"
 - ✅ **Breadcrumb visual** - Headers customizados com botão voltar
 
+## 🚀 Deploy e Produção
+
+### Cloudflare Integration
+
+Este projeto está otimizado para integração com Cloudflare:
+
+#### 🌐 Benefícios do Cloudflare (Plano Free)
+- **CDN Global**: 300+ datacenters para latência ultra-baixa
+- **DDoS Protection**: Proteção até 10Tbps sem custo adicional
+- **SSL/TLS**: Certificado HTTPS grátis e automático
+- **Cache Inteligente**: Reduz carga do servidor em 90%
+- **Bot Protection**: Bloqueia bots maliciosos automaticamente
+- **Analytics**: Métricas em tempo real de tráfego e segurança
+- **Auto Minify**: Compressão automática de CSS, JS e HTML
+- **Brotli Compression**: Compressão superior ao Gzip
+
+#### 📊 Performance Esperada
+- **TTFB**: <200ms (Time to First Byte)
+- **Cache Hit Ratio**: >85%
+- **PageSpeed Score**: >90 (Mobile e Desktop)
+- **Economia de Bandwidth**: ~90% (com cache ativo)
+
+#### 🔧 Arquivos de Configuração
+- `cloudflare.md` - Guia completo de configuração Cloudflare
+- `nginx.conf` - Nginx otimizado com Real IP do Cloudflare
+- `test-cloudflare.ps1` - Script de testes automatizados
+- `purge-cloudflare-cache.ps1` - Script para limpar cache
+
+### Deploy no Coolify
+
+Guia completo de deploy disponível em `DEPLOY.md`:
+- Configuração de DNS
+- Integração Brevo (emails)
+- Variáveis de ambiente
+- Docker e segurança
+- CI/CD com GitHub
+
+### Scripts de Teste
+
+```powershell
+# Testar configuração Cloudflare
+.\test-cloudflare.ps1 -Domain novasyn.com.br
+
+# Limpar cache completo
+.\purge-cloudflare-cache.ps1 -PurgeAll
+
+# Limpar cache de arquivos específicos
+.\purge-cloudflare-cache.ps1 -Files "https://novasyn.com.br/index.html,https://novasyn.com.br/assets/style.css"
+```
+
+### Segurança em Produção
+
+✅ **Implementado:**
+- Rate Limiting (10 req/min por formulário)
+- Honeypot anti-bot
+- Sanitização de inputs (XSS/SQL Injection)
+- CSRF Token validation
+- Security Headers (CSP, HSTS, X-Frame-Options)
+- Real IP detection via Cloudflare
+- Bot Fight Mode (Cloudflare)
+
+📚 **Documentação:**
+- `SECURITY.md` - Guia de segurança completo
+- `TESTING.md` - Guia de testes e qualidade
+- `IMPROVEMENTS.md` - Melhorias implementadas e roadmap
+
+### Variáveis de Ambiente
+
+Configure no Coolify (ou `.env` local):
+
+```env
+# Brevo Email
+VITE_BREVO_API_KEY=xkeysib-xxxxx
+VITE_RECIPIENT_EMAIL=contato@novasyn.com.br
+VITE_SENDER_EMAIL=noreply@novasyn.com.br
+
+# Cloudflare
+CLOUDFLARE_ENABLED=true
+CLOUDFLARE_ZONE_ID=your_zone_id
+CLOUDFLARE_API_TOKEN=your_api_token
+
+# Google Analytics
+VITE_GA4_MEASUREMENT_ID=G-XXXXXXXXXX
+
+# Site
+VITE_SITE_URL=https://novasyn.com.br
+```
+
+### Monitoramento
+
+**Ferramentas Recomendadas:**
+- [Google Analytics](https://analytics.google.com) - Tráfego e conversões
+- [Cloudflare Analytics](https://dash.cloudflare.com) - Performance e segurança
+- [GTmetrix](https://gtmetrix.com) - Performance testing
+- [PageSpeed Insights](https://pagespeed.web.dev) - Core Web Vitals
+- [Security Headers](https://securityheaders.com) - Análise de segurança
+
 ---
 
 Desenvolvido com ❤️ pela equipe Nova Syn

@@ -1,0 +1,93 @@
+version: '3.8'
+
+services:
+  novasyn-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: novasyn-web
+    restart: unless-stopped
+    
+    # Security: Run as non-root
+    user: "101:101"
+    
+    # Security: Read-only root filesystem
+    read_only: true
+    
+    # Security: Drop all capabilities
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
+    
+    # Security: No new privileges
+    security_opt:
+      - no-new-privileges:true
+    
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+    
+    # Environment variables (use secrets in production)
+    environment:
+      - NODE_ENV=production
+      # Brevo Email
+      - VITE_BREVO_API_KEY=${VITE_BREVO_API_KEY}
+      - VITE_RECIPIENT_EMAIL=${VITE_RECIPIENT_EMAIL}
+      - VITE_SENDER_EMAIL=${VITE_SENDER_EMAIL}
+      # Security
+      - VITE_ENABLE_RATE_LIMIT=true
+      - VITE_MAX_REQUESTS_PER_MINUTE=10
+      - VITE_MAX_REQUESTS_PER_HOUR=50
+      - VITE_ENABLE_HONEYPOT=true
+      # Cloudflare
+      - CLOUDFLARE_ENABLED=${CLOUDFLARE_ENABLED:-true}
+      - CLOUDFLARE_ZONE_ID=${CLOUDFLARE_ZONE_ID}
+      - CLOUDFLARE_API_TOKEN=${CLOUDFLARE_API_TOKEN}
+      # Analytics
+      - VITE_GA4_MEASUREMENT_ID=${VITE_GA4_MEASUREMENT_ID}
+      # Site Configuration
+      - VITE_SITE_URL=${VITE_SITE_URL:-https://novasyn.com.br}
+    
+    # Temporary volumes for nginx
+    tmpfs:
+      - /tmp:noexec,nosuid,size=100m
+      - /var/run:noexec,nosuid,size=50m
+      - /var/cache/nginx:noexec,nosuid,size=100m
+    
+    # Health check
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 40s
+    
+    # Logging
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    
+    # Network
+    networks:
+      - novasyn-network
+    
+    # Ports
+    ports:
+      - "80:80"
+      - "443:443"
+
+networks:
+  novasyn-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

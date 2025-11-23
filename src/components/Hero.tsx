@@ -13,7 +13,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className={`min-h-screen flex items-center justify-center bg-gradient-hero pt-24 relative overflow-hidden transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+    <section className={`min-h-screen flex items-center justify-center bg-gradient-hero pt-24 relative overflow-hidden transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} aria-label="Seção principal">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-[500px] h-[500px] bg-primary/8 rounded-full blur-3xl animate-float"></div>

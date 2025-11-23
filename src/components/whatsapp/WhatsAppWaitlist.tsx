@@ -5,12 +5,14 @@ import { useToast } from "@/hooks/use-toast";
 import { Flame, Sparkles, ScrollText } from "lucide-react";
 import { useWhatsAppTranslation } from "@/hooks/use-whatsapp-translation";
 import { sendWaitlistEmail } from "@/services/email";
+import { checkHoneypot } from "@/lib/security";
 import type { WaitlistFormData } from "@/types/form";
 
 const WhatsAppWaitlist = () => {
   const { toast } = useToast();
   const { t } = useWhatsAppTranslation();
   const [loading, setLoading] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
   const [formData, setFormData] = useState<WaitlistFormData>({
     storeName: "",
     segment: "",
@@ -24,6 +26,22 @@ const WhatsAppWaitlist = () => {
     setLoading(true);
 
     try {
+      // Honeypot check - bots will fill this hidden field
+      const honeypotEnabled = import.meta.env.VITE_ENABLE_HONEYPOT !== 'false';
+      if (honeypotEnabled && !checkHoneypot(honeypot)) {
+        console.warn('Honeypot triggered - potential bot detected');
+        // Silent fail for bots
+        setTimeout(() => {
+          toast({
+            title: t("waitlist.toast.title"),
+            description: t("waitlist.toast.description"),
+          });
+          setFormData({ storeName: "", segment: "", whatsapp: "", email:"", location: "" });
+          setLoading(false);
+        }, 2000);
+        return;
+      }
+
       const response = await sendWaitlistEmail(formData);
       
       if (response.success) {
@@ -32,6 +50,7 @@ const WhatsAppWaitlist = () => {
           description: t("waitlist.toast.description"),
         });
         setFormData({ storeName: "", segment: "", whatsapp: "", email:"", location: "" });
+        setHoneypot("");
       } else {
         throw new Error(response.error);
       }
@@ -149,6 +168,20 @@ const WhatsAppWaitlist = () => {
               onChange={(e) => setFormData({ ...formData, location: e.target.value })}
               placeholder={t("waitlist.form.location.placeholder")}
               className="h-14 text-base border-2 focus:border-primary rounded-xl transition-all duration-300"
+            />
+          </div>
+
+          {/* Honeypot field - hidden from users, visible to bots */}
+          <div className="hidden" aria-hidden="true">
+            <label htmlFor="website">Website (don't fill)</label>
+            <Input
+              id="website"
+              name="website"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              value={honeypot}
+              onChange={(e) => setHoneypot(e.target.value)}
             />
           </div>
           
