@@ -374,4 +374,103 @@ Este projeto é propriedade da Nova Syn LTDA. Todos os direitos reservados.
 
 ---
 
+## 📅 Atualizações Recentes (Novembro 2025)
+
+### 🎨 Melhorias Visuais e UX
+
+#### Portfólio
+- ✅ **Sistema de i18n completo** - Todos os itens do portfólio traduzidos (pt/en)
+- ✅ **Logos customizadas** - Vende.AI, Xmetal e NovaSyn nos cards
+- ✅ **Status de desenvolvimento** - Badge "Em Desenvolvimento" / "In Development" com animação
+- ✅ **Visual de indisponibilidade** - Opacidade reduzida e grayscale em projetos em desenvolvimento
+- ✅ **Botão "Em Breve"** - Substituição do botão "Ver Projeto" por "Em Breve" / "Coming Soon" para projetos indisponíveis
+
+#### Header
+- ✅ **Scroll behavior inteligente** - Header esconde ao rolar para baixo, reaparece ao rolar para cima
+- ✅ **Animação de entrada** - Fade-down animation no carregamento da página
+- ✅ **Logo da NovaSyn** - Integração da logo_1.png no header
+- ✅ **Link "Produtos" removido** - Simplificação da navegação (comentado no código)
+
+#### Hero
+- ✅ **Animações de background** - Orbs animados com blur-3xl e efeitos de luz
+- ✅ **Logos de clientes** - Xmetal e NovaSyn exibidas como bolinhas antes do texto de companies
+- ✅ **Botão VendeAI comentado** - Badge promocional do VendeAI removido temporariamente
+- ✅ **Redirecionamento atualizado** - Botão "Ver Produtos" agora direciona para Portfolio
+
+#### Footer & Team
+- ✅ **Footer totalmente bilíngue** - Copyright, direitos, políticas em pt/en
+- ✅ **Equipe internacionalizada** - Nomes, cargos e descrições traduzidos
+- ✅ **Favicon atualizado** - Usando logo_1.png da NovaSyn
+
+### 📄 Páginas Legais
+
+#### Política de Privacidade (/privacy)
+- ✅ **Conteúdo completo** - 8 seções detalhando coleta, uso, cookies, direitos, segurança
+- ✅ **Bilíngue (pt/en)** - Sistema de tradução completo
+- ✅ **Header customizado** - Botão "Voltar" / "Back" no lugar da logo
+- ✅ **Design consistente** - Visual alinhado com o resto do site
+
+#### Termos de Serviço (/terms)
+- ✅ **Conteúdo completo** - 8 seções sobre aceitação, serviços, obrigações, propriedade intelectual
+- ✅ **Bilíngue (pt/en)** - Sistema de tradução completo
+- ✅ **Header customizado** - Botão "Voltar" / "Back" no lugar da logo
+- ✅ **Links atualizados** - Footer com links funcionais para /privacy e /terms
+
+### ❓ FAQ (Perguntas Frequentes)
+
+#### Nova Seção
+- ✅ **8 perguntas estratégicas** - Baseadas em dúvidas reais de clientes
+  - Tempo de desenvolvimento
+  - Suporte pós-entrega
+  - Processo de desenvolvimento
+  - Investimento necessário
+  - Tipos de projetos
+  - Diferenciais da Nova Syn
+  - Acesso ao código-fonte
+  - Atendimento por tamanho de empresa
+- ✅ **Accordion component** - Interface expansível com shadcn/ui
+- ✅ **Totalmente bilíngue** - Perguntas e respostas em pt/en
+- ✅ **CTA de contato** - Link direto para a seção de contato
+- ✅ **Animações e efeitos** - Hover lift, borders animadas, background decorativo
+
+### 🎨 Assets e Ícones
+
+#### Logos Criadas
+- ✅ **novasyn-icon.svg** - Ícone circular com letra "N" em gradiente roxo
+- ✅ **vendeai-logo.svg** - Logo completa do produto VendeAI (já existente)
+- ✅ **vendeai-icon.svg** - Versão ícone do VendeAI (já existente)
+
+### 🔧 Melhorias Técnicas
+
+#### Rotas
+- ✅ **Nova rota /privacy** - Página de Política de Privacidade
+- ✅ **Nova rota /terms** - Página de Termos de Serviço
+- ✅ **Rota /whatsapp** - Produto VendeAI (já existente)
+
+#### Internacionalização
+- ✅ **90+ novas chaves de tradução** - Privacy policy, terms, FAQ, team
+- ✅ **Sistema escalável** - Fácil adicionar novos idiomas
+- ✅ **Tradução nav.back** - "Voltar" / "Back" para páginas legais
+
+#### Componentes
+- ✅ **FAQ.tsx** - Novo componente de perguntas frequentes
+- ✅ **PrivacyPolicy.tsx** - Página de política de privacidade
+- ✅ **TermsOfService.tsx** - Página de termos de serviço
+- ✅ **Portfolio.tsx** - Sistema de status de desenvolvimento
+- ✅ **About.tsx** - Botão de consultoria direcionando para #contato
+
+### 🎯 Funcionalidades
+
+#### Estados Visuais
+- ✅ **inDevelopment flag** - Sistema para marcar projetos em desenvolvimento
+- ✅ **Conditional rendering** - Botões e estilos diferentes para projetos disponíveis/indisponíveis
+- ✅ **Dark mode support** - Todos os novos componentes com suporte a tema escuro
+
+#### Navegação
+- ✅ **Links internos otimizados** - Smooth scroll para seções
+- ✅ **Links externos seguros** - target="_blank" com rel="noopener noreferrer"
+- ✅ **Breadcrumb visual** - Headers customizados com botão voltar
+
+---
+
 Desenvolvido com ❤️ pela equipe Nova Syn
