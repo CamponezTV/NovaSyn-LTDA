@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useEffect, useState } from "react";
+import novasynLogoQuad from "@/assets/logos/logo_quad_fundo_branco.png";
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -71,7 +72,7 @@ const Hero = () => {
                 <img src="/xmetal-logo.jpeg" alt="Xmetal" className="w-full h-full object-cover" />
               </div>
               <div className="w-10 h-10 rounded-full border-2 border-background transition-transform hover:scale-110 hover:-translate-y-1 overflow-hidden bg-white">
-                <img src="/src/assets/logos/logo_quad_fundo_branco.png" alt="NovaSyn" className="w-full h-full object-contain" />
+                <img src={novasynLogoQuad} alt="NovaSyn" className="w-full h-full object-contain" />
               </div>
             </div>
             <span>{t("hero.companies")}</span>

@@ -2,6 +2,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
+import novasynLogo from "@/assets/logos/logo_1.png";
 
 const Portfolio = () => {
   const { t } = useLanguage();
@@ -25,7 +26,7 @@ const Portfolio = () => {
     {
       title: t("portfolio.item3.title"),
       description: t("portfolio.item3.description"),
-      image: "/src/assets/logos/logo_1.png",
+      image: novasynLogo,
       link: "#",
       tags: [t("portfolio.item3.tag1"), t("portfolio.item3.tag2"), t("portfolio.item3.tag3")],
     },
