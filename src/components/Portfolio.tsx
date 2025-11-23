@@ -3,32 +3,33 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 
-const portfolioItems = [
-  {
-    title: "WhatsApp Automation Platform",
-    description: "Plataforma de automação de vendas no WhatsApp com IA",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=600&fit=crop",
-    link: "https://projeto-whats.vercel.app/",
-    tags: ["IA", "Automação", "WhatsApp"],
-  },
-  {
-    title: "E-commerce Management System",
-    description: "Sistema completo de gestão para lojas online",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-    link: "#",
-    tags: ["E-commerce", "Dashboard", "Analytics"],
-  },
-  {
-    title: "Corporate Website",
-    description: "Site institucional moderno e responsivo",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop",
-    link: "#",
-    tags: ["Website", "Design", "Responsivo"],
-  },
-];
-
 const Portfolio = () => {
   const { t } = useLanguage();
+
+  const portfolioItems = [
+    {
+      title: t("portfolio.item1.title"),
+      description: t("portfolio.item1.description"),
+      image: "/vendeai-logo.svg",
+      link: "https://projeto-whats.vercel.app/",
+      tags: [t("portfolio.item1.tag1"), t("portfolio.item1.tag2"), t("portfolio.item1.tag3")],
+      inDevelopment: true,
+    },
+    {
+      title: t("portfolio.item2.title"),
+      description: t("portfolio.item2.description"),
+      image: "/xmetal-logo.jpeg",
+      link: "#",
+      tags: [t("portfolio.item2.tag1"), t("portfolio.item2.tag2"), t("portfolio.item2.tag3")],
+    },
+    {
+      title: t("portfolio.item3.title"),
+      description: t("portfolio.item3.description"),
+      image: "/src/assets/logos/logo_1.png",
+      link: "#",
+      tags: [t("portfolio.item3.tag1"), t("portfolio.item3.tag2"), t("portfolio.item3.tag3")],
+    },
+  ];
 
   return (
     <section id="portfolio" className="py-24 bg-gradient-hero relative overflow-hidden">
@@ -57,10 +58,18 @@ const Portfolio = () => {
               <div className="aspect-video overflow-hidden relative">
                 {/* Overlay gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
+                {/* Development badge */}
+                {item.inDevelopment && (
+                  <div className="absolute top-3 right-3 z-20">
+                    <span className="px-3 py-1.5 text-xs font-bold rounded-full bg-gradient-to-r from-[hsl(25_95%_53%)] to-[hsl(142_70%_45%)] text-white shadow-lg animate-pulse">
+                      {t("portfolio.inDevelopment")}
+                    </span>
+                  </div>
+                )}
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-2 transition-all duration-700"
+                  className={`w-full h-full object-cover transition-all duration-700 ${item.inDevelopment ? 'opacity-40 grayscale' : 'group-hover:scale-110 group-hover:rotate-2'}`}
                 />
               </div>
               <CardHeader>
@@ -82,12 +91,18 @@ const Portfolio = () => {
                     </span>
                   ))}
                 </div>
-                <Button variant="outline" className="w-full group/btn transition-smooth hover:bg-primary hover:text-primary-foreground" asChild>
-                  <a href={item.link} target="_blank" rel="noopener noreferrer">
-                    {t("portfolio.viewProject")}
-                    <ExternalLink className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
-                  </a>
-                </Button>
+                {item.inDevelopment ? (
+                  <Button variant="outline" className="w-full transition-smooth cursor-not-allowed opacity-60" disabled>
+                    {t("portfolio.comingSoon")}
+                  </Button>
+                ) : (
+                  <Button variant="outline" className="w-full group/btn transition-smooth hover:bg-primary hover:text-primary-foreground" asChild>
+                    <a href={item.link} target="_blank" rel="noopener noreferrer">
+                      {t("portfolio.viewProject")}
+                      <ExternalLink className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+                    </a>
+                  </Button>
+                )}
               </CardContent>
             </Card>
           ))}

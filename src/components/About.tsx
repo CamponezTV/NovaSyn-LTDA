@@ -54,8 +54,8 @@ const About = () => {
             </div>
 
             <div className="pt-6 animate-fade-up animation-delay-400">
-              <Button variant="hero" size="lg" className="transition-smooth hover:scale-105">
-                {t("about.cta")}
+              <Button variant="hero" size="lg" className="transition-smooth hover:scale-105" asChild>
+                <a href="#contato">{t("about.cta")}</a>
               </Button>
             </div>
           </div>
@@ -64,7 +64,7 @@ const About = () => {
             <div className="aspect-square rounded-3xl bg-gradient-primary/10 border-2 border-primary/20 p-8 flex items-center justify-center backdrop-blur-sm shadow-glow hover-lift">
               <div className="text-center space-y-8">
                 <div className="space-y-2 animate-scale-in">
-                  <p className="text-6xl font-bold text-brand-purple-dark dark:text-foreground transition-colors">50+</p>
+                  <p className="text-6xl font-bold text-brand-purple-dark dark:text-foreground transition-colors">10+</p>
                   <p className="text-xl text-foreground/70">{t("about.stat1")}</p>
                 </div>
                 <div className="space-y-2 animate-scale-in animation-delay-200">

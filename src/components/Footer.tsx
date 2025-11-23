@@ -1,6 +1,10 @@
 import novasynLogo from '@/assets/logos/logo_1.png';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Footer = () => {
+  const { t } = useLanguage();
+  const currentYear = new Date().getFullYear();
+  
   return (
     <footer className="bg-background dark:bg-background py-8 border-t border-[#6D28D9]/20">
       <div className="container mx-auto px-4">
@@ -19,17 +23,17 @@ const Footer = () => {
           {/* Copyright and Links */}
           <div className="text-center">
             <p className="text-foreground/60 text-sm">
-              ©️ {new Date().getFullYear()} — Novasyn LTDA
+              {t("footer.copyright").replace("{year}", currentYear.toString())}
             </p>
             <div className="flex items-center justify-center gap-2 mt-2 text-xs text-foreground/50">
-              <span>Todos os direitos reservados</span>
+              <span>{t("footer.rights")}</span>
               <span>·</span>
-              <a href="#" className="hover:text-[#6D28D9] transition-colors">
-                Política de Privacidade
+              <a href="/privacy" className="hover:text-[#6D28D9] transition-colors">
+                {t("footer.privacy")}
               </a>
               <span>·</span>
-              <a href="#" className="hover:text-[#6D28D9] transition-colors">
-                Termos de Serviço
+              <a href="/terms" className="hover:text-[#6D28D9] transition-colors">
+                {t("footer.terms")}
               </a>
             </div>
           </div>

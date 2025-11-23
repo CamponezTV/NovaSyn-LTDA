@@ -59,10 +59,10 @@ const Header = () => {
               {t("nav.about")}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#6D28D9] group-hover:w-full transition-all duration-300"></span>
             </a>
-            <a href="#produtos" className="text-sm font-medium text-brand-purple-dark dark:text-foreground/80 hover:text-[#6D28D9] transition-smooth hover:scale-110 relative group whitespace-nowrap">
+            {/* <a href="#produtos" className="text-sm font-medium text-brand-purple-dark dark:text-foreground/80 hover:text-[#6D28D9] transition-smooth hover:scale-110 relative group whitespace-nowrap">
               {t("nav.products")}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#6D28D9] group-hover:w-full transition-all duration-300"></span>
-            </a>
+            </a> */}
             <a href="#portfolio" className="text-sm font-medium text-brand-purple-dark dark:text-foreground/80 hover:text-[#6D28D9] transition-smooth hover:scale-110 relative group whitespace-nowrap">
               {t("nav.portfolio")}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#6D28D9] group-hover:w-full transition-all duration-300"></span>

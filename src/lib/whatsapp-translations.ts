@@ -12,6 +12,7 @@ export const whatsappTranslations = {
     "hero.opacity.highlight": "all by itself",
     "hero.spots": "Limited spots for beta testing",
     "hero.more": "Try the demo",
+    "hero.companies": "Transforming the service of stores like yours",
 
     // Benefits Section
     "benefits.title": "Benefits",
@@ -140,6 +141,7 @@ export const whatsappTranslations = {
     "hero.opacity.highlight": "tudo sozinho",
     "hero.spots": "Vagas limitadas para o beta teste",
     "hero.more": "Teste a demo",
+    "hero.companies": "Transformando o atendimento de lojas como a sua",
 
     // Benefits Section
     "benefits.title": "Benefícios",

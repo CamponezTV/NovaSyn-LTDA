@@ -5,32 +5,32 @@ import arthurImg from "@/assets/team-arthur.jpg";
 import pauloImg from "@/assets/team-paulo.jpg";
 import giovanniImg from "@/assets/team-giovanni.jpg";
 
-const teamMembers = [
-  {
-    name: "Arthur",
-    role: "Dev & Product",
-    description: "Transforma ideias em realidade, construindo sistemas e interfaces que funcionam perfeitamente.",
-    icon: Code,
-    image: arthurImg,
-  },
-  {
-    name: "Paulo",
-    role: "Automação & IA",
-    description: "Conecta tudo, integra sistemas e constrói automações inteligentes que fazem a diferença.",
-    icon: Cpu,
-    image: pauloImg,
-  },
-  {
-    name: "Giovanni",
-    role: "Vendas & Estratégia",
-    description: "Cuida das vendas, marketing e escalabilidade para levar a empresa ao próximo nível.",
-    icon: TrendingUp,
-    image: giovanniImg,
-  },
-];
-
 const Team = () => {
   const { t } = useLanguage();
+
+  const teamMembers = [
+    {
+      name: t("team.arthur.name"),
+      role: t("team.arthur.role"),
+      description: t("team.arthur.description"),
+      icon: Code,
+      image: arthurImg,
+    },
+    {
+      name: t("team.paulo.name"),
+      role: t("team.paulo.role"),
+      description: t("team.paulo.description"),
+      icon: Cpu,
+      image: pauloImg,
+    },
+    {
+      name: t("team.giovanni.name"),
+      role: t("team.giovanni.role"),
+      description: t("team.giovanni.description"),
+      icon: TrendingUp,
+      image: giovanniImg,
+    },
+  ];
 
   return (
     <section id="equipe" className="py-24 bg-background relative overflow-hidden">
@@ -42,10 +42,10 @@ const Team = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <h2 className="text-4xl md:text-5xl font-bold text-brand-purple-dark dark:text-foreground animate-fade-up">
-            Nossa Equipe
+            {t("team.title")}
           </h2>
           <p className="text-lg text-muted-foreground animate-fade-up animation-delay-100">
-            Conheça os especialistas que tornam tudo isso possível
+            {t("team.subtitle")}
           </p>
         </div>
 
@@ -88,7 +88,7 @@ const Team = () => {
 
         <div className="text-center max-w-2xl mx-auto animate-fade-up animation-delay-400">
           <p className="text-lg text-foreground/70 leading-relaxed">
-            Vimos como a tecnologia pode transformar negócios. Então nos unimos para criar soluções que realmente fazem a diferença.
+            {t("team.mission")}
           </p>
         </div>
       </div>
