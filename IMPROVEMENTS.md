@@ -1,4 +1,4 @@
-# 🎯 Melhorias Implementadas - Nova Syn
+# 🎯 Melhorias Implementadas - NovaSyn
 
 ## ✅ **CONCLUÍDO** (23/11/2025)
 

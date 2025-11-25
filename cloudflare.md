@@ -1,4 +1,4 @@
-# Configuração Cloudflare para Nova Syn
+# Configuração Cloudflare para NovaSyn
 
 ## 1. Configuração Inicial
 

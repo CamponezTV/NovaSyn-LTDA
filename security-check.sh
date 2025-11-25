@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Security Check Script for Nova Syn
+# Security Check Script for NovaSyn
 # Run this before deploying to production
 
-echo "🔒 Nova Syn - Security Check"
+echo "🔒 NovaSyn - Security Check"
 echo "=============================="
 echo ""
 

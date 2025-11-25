@@ -101,12 +101,12 @@ const Contact = () => {
         },
         body: JSON.stringify({
           sender: {
-            name: "Nova Syn - Contato",
+            name: "NovaSyn - Contato",
             email: SENDER_EMAIL
           },
           to: [{
             email: RECIPIENT_EMAIL,
-            name: "Nova Syn Team"
+            name: "NovaSyn Team"
           }],
           subject: `Novo contato: ${validation.sanitized.name}`,
           htmlContent: `
@@ -145,7 +145,7 @@ const Contact = () => {
                   </div>
                   <div class="footer">
                     <p>Enviado em: ${new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })}</p>
-                    <p>Sistema de Contato - Nova Syn</p>
+                    <p>Sistema de Contato - NovaSyn</p>
                   </div>
                 </div>
               </div>

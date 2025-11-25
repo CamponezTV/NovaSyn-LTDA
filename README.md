@@ -1,8 +1,8 @@
-# Nova Syn Digital Hub
+# NovaSyn Digital Hub
 
 > Uma landing page moderna e responsiva para empresa de tecnologia especializada em IA, automação e desenvolvimento web.
 
-![Nova Syn](https://img.shields.io/badge/Nova_Syn-Digital_Hub-00A896?style=for-the-badge)
+![NovaSyn](https://img.shields.io/badge/Nova_Syn-Digital_Hub-00A896?style=for-the-badge)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
@@ -22,7 +22,7 @@
 
 ## 🚀 Sobre o Projeto
 
-O Nova Syn Digital Hub é uma landing page premium desenvolvida para apresentar serviços de tecnologia, IA e automação. O projeto conta com design moderno, animações suaves, modo escuro/claro e suporte a múltiplos idiomas.
+O NovaSyn Digital Hub é uma landing page premium desenvolvida para apresentar serviços de tecnologia, IA e automação. O projeto conta com design moderno, animações suaves, modo escuro/claro e suporte a múltiplos idiomas.
 
 ### ✨ Características Principais
 
@@ -364,7 +364,7 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou pull r
 
 ## 📄 Licença
 
-Este projeto é propriedade da Nova Syn LTDA. Todos os direitos reservados.
+Este projeto é propriedade da NovaSyn LTDA. Todos os direitos reservados.
 
 ## 👥 Equipe
 
@@ -425,7 +425,7 @@ Este projeto é propriedade da Nova Syn LTDA. Todos os direitos reservados.
   - Processo de desenvolvimento
   - Investimento necessário
   - Tipos de projetos
-  - Diferenciais da Nova Syn
+  - Diferenciais da NovaSyn
   - Acesso ao código-fonte
   - Atendimento por tamanho de empresa
 - ✅ **Accordion component** - Interface expansível com shadcn/ui
@@ -570,4 +570,4 @@ VITE_SITE_URL=https://novasyn.com.br
 
 ---
 
-Desenvolvido com ❤️ pela equipe Nova Syn
+Desenvolvido com ❤️ pela equipe NovaSyn

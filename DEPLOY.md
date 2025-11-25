@@ -1,6 +1,6 @@
-# 🚀 Deploy no Coolify - Nova Syn
+# 🚀 Deploy no Coolify - NovaSyn
 
-Guia completo para fazer deploy do site Nova Syn no Coolify com máxima segurança.
+Guia completo para fazer deploy do site NovaSyn no Coolify com máxima segurança.
 
 ## 📋 Pré-requisitos
 
@@ -100,7 +100,7 @@ MX    @     mx.brevo.com     ❌ DNS Only
 
 1. Acesse o painel do Coolify
 2. Clique em **New Project**
-3. Nome: `Nova Syn Website`
+3. Nome: `NovaSyn Website`
 4. Clique em **Create**
 
 ### 3.2 Adicionar aplicação

@@ -47,6 +47,6 @@ describe('TermsOfService', () => {
   });
 
   it('should render acceptance text', () => {
-    expect(screen.getByText(/Ao acessar e usar os serviços da Nova Syn LTDA/)).toBeInTheDocument();
+    expect(screen.getByText(/Ao acessar e usar os serviços da NovaSyn LTDA/)).toBeInTheDocument();
   });
 });

@@ -1,4 +1,4 @@
-# ✅ Checklist de Deploy - Nova Syn + Cloudflare
+# ✅ Checklist de Deploy - NovaSyn + Cloudflare
 
 Use este checklist para garantir que todos os passos de configuração foram concluídos.
 
@@ -54,7 +54,7 @@ Use este checklist para garantir que todos os passos de configuração foram con
 
 ### 6. Google Analytics
 - [ ] Conta Google Analytics 4 criada
-- [ ] Property "Nova Syn" criada
+- [ ] Property "NovaSyn" criada
 - [ ] Data Stream configurado
 - [ ] Measurement ID copiado (G-XXXXXXXXXX)
 - [ ] Event tracking testado
@@ -259,4 +259,4 @@ Quando todos os checkboxes estiverem marcados, seu site está pronto para produ�
 
 **Última atualização:** 23 de novembro de 2025  
 **Versão:** 1.0.0  
-**Mantenedor:** Equipe Nova Syn
+**Mantenedor:** Equipe NovaSyn

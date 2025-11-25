@@ -46,7 +46,7 @@ describe('PrivacyPolicy', () => {
     expect(screen.getByText('8. Contato')).toBeInTheDocument();
   });
 
-  it('should render Nova Syn commitment text', () => {
-    expect(screen.getByText(/Nova Syn LTDA está comprometida em proteger sua privacidade/)).toBeInTheDocument();
+  it('should render NovaSyn commitment text', () => {
+    expect(screen.getByText(/NovaSyn LTDA está comprometida em proteger sua privacidade/)).toBeInTheDocument();
   });
 });

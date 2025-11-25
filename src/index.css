@@ -38,7 +38,7 @@ All colors MUST be HSL.
 
     --radius: 1rem;
 
-    /* Nova Syn Brand Colors */
+    /* NovaSyn Brand Colors */
     --brand-green: 160 100% 33%;
     --brand-purple: 270 72% 50%;
     --brand-purple-dark: 270 72% 20%;
@@ -91,7 +91,7 @@ All colors MUST be HSL.
     --input: 270 30% 22%;
     --ring: 160 100% 40%;
     
-    /* Nova Syn Brand Colors for Dark Mode */
+    /* NovaSyn Brand Colors for Dark Mode */
     --brand-green: 160 100% 40%;
     --brand-purple: 270 72% 55%;
     --brand-purple-dark: 270 40% 85%;

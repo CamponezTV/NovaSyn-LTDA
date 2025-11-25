@@ -1,6 +1,6 @@
-# 🔒 Guia de Segurança - Nova Syn
+# 🔒 Guia de Segurança - NovaSyn
 
-Este documento detalha todas as medidas de segurança implementadas no site da Nova Syn.
+Este documento detalha todas as medidas de segurança implementadas no site da NovaSyn.
 
 ## 📋 Índice
 

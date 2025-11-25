@@ -1,4 +1,4 @@
-# Testes Unitários - Nova Syn
+# Testes Unitários - NovaSyn
 
 ## 📋 Visão Geral
 

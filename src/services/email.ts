@@ -59,12 +59,12 @@ export async function sendWaitlistEmail(data: WaitlistFormData): Promise<SendEma
       },
       body: JSON.stringify({
         sender: {
-          name: "Nova Syn - Waitlist",
+          name: "NovaSyn - Waitlist",
           email: SENDER_EMAIL
         },
         to: [{
           email: RECIPIENT_EMAIL,
-          name: "Nova Syn Team"
+          name: "NovaSyn Team"
         }],
         subject: `Nova inscrição na waitlist: ${sanitizeHtml(sanitizedData.storeName)}`,
         htmlContent: `
@@ -111,7 +111,7 @@ export async function sendWaitlistEmail(data: WaitlistFormData): Promise<SendEma
                 </div>
                 <div class="footer">
                   <p>Enviado em: ${new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })}</p>
-                  <p>Sistema de Waitlist - Nova Syn</p>
+                  <p>Sistema de Waitlist - NovaSyn</p>
                 </div>
               </div>
             </div>
