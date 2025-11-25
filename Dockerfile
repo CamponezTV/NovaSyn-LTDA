@@ -24,9 +24,9 @@ RUN npm run build
 # Production stage
 FROM nginx:alpine-slim AS production
 
-# Security: Install security updates
+# Security: Install security updates and wget
 RUN apk --no-cache upgrade && \
-    apk --no-cache add ca-certificates && \
+    apk --no-cache add ca-certificates wget && \
     rm -rf /var/cache/apk/*
 
 # Copy nginx configuration
@@ -40,7 +40,8 @@ RUN rm -rf /usr/share/nginx/html/*.map
 
 # Security: Set proper permissions
 RUN chown -R nginx:nginx /usr/share/nginx/html && \
-    chmod -R 755 /usr/share/nginx/html
+    chmod -R 755 /usr/share/nginx/html && \
+    chown -R nginx:nginx /var/cache/nginx
 
 # Security: Run as non-root user
 USER nginx
