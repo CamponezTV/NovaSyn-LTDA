@@ -41,7 +41,9 @@ RUN rm -rf /usr/share/nginx/html/*.map
 # Security: Set proper permissions
 RUN chown -R nginx:nginx /usr/share/nginx/html && \
     chmod -R 755 /usr/share/nginx/html && \
-    chown -R nginx:nginx /var/cache/nginx
+    chown -R nginx:nginx /var/cache/nginx && \
+    mkdir -p /run/nginx && \
+    chown -R nginx:nginx /run/nginx
 
 # Security: Run as non-root user
 USER nginx
