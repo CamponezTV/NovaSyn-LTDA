@@ -118,7 +118,7 @@ export const whatsappTranslations = {
     "team.conclusion": "We saw how WhatsApp can be a nightmare for store owners. So we teamed up to finally do something about it.",
 
     // Footer
-    "footer.brand": "©️ 2025 — Novasyn LTDA",
+    "footer.brand": "©️ 2026 — Novasyn LTDA",
     "footer.rights": "All rights reserved",
     "footer.privacy": "Privacy Policy",
     "footer.terms": "Terms of Service",

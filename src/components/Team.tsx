@@ -15,6 +15,7 @@ const Team = () => {
       description: t("team.arthur.description"),
       icon: Code,
       image: arthurImg,
+      link: "https://camponez.com.br",
     },
     {
       name: t("team.paulo.name"),
@@ -50,40 +51,50 @@ const Team = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
-          {teamMembers.map((member, index) => (
-            <Card 
-              key={index} 
-              className="group hover-lift border-2 hover:border-primary transition-smooth animate-scale-up bg-card/50 backdrop-blur-sm overflow-hidden"
-              style={{ animationDelay: `${index * 150}ms` }}
-            >
-              <CardHeader className="text-center">
-                {/* Image */}
-                <div className="relative w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-primary/20 group-hover:border-primary transition-smooth">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  {/* Icon overlay on hover */}
-                  <div className="absolute inset-0 bg-primary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <member.icon className="w-12 h-12 text-primary-foreground" />
-                  </div>
-                </div>
-                
-                <CardTitle className="text-2xl group-hover:text-primary transition-colors">
-                  {member.name}
-                </CardTitle>
-                <CardDescription className="text-base font-semibold text-primary">
-                  {member.role}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-center text-foreground/70 leading-relaxed">
-                  {member.description}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
+          {teamMembers.map((member, index) => {
+            const CardComponent = member.link ? "a" : "div";
+            return (
+              <CardComponent
+                key={index}
+                href={member.link}
+                target={member.link ? "_blank" : undefined}
+                rel={member.link ? "noopener noreferrer" : undefined}
+                className={member.link ? "no-underline" : ""}
+              >
+                <Card 
+                  className="group hover-lift border-2 hover:border-primary transition-smooth animate-scale-up bg-card/50 backdrop-blur-sm overflow-hidden h-full"
+                  style={{ animationDelay: `${index * 150}ms` }}
+                >
+                  <CardHeader className="text-center">
+                    {/* Image */}
+                    <div className="relative w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-primary/20 group-hover:border-primary transition-smooth">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      {/* Icon overlay on hover */}
+                      <div className="absolute inset-0 bg-primary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <member.icon className="w-12 h-12 text-primary-foreground" />
+                      </div>
+                    </div>
+                    
+                    <CardTitle className="text-2xl group-hover:text-primary transition-colors">
+                      {member.name}
+                    </CardTitle>
+                    <CardDescription className="text-base font-semibold text-primary">
+                      {member.role}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-center text-foreground/70 leading-relaxed">
+                      {member.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </CardComponent>
+            );
+          })}
         </div>
 
         <div className="text-center max-w-2xl mx-auto animate-fade-up animation-delay-400">

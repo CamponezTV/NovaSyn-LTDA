@@ -59,4 +59,14 @@ describe('Hero', () => {
     expect(xmetalLogo).toBeInTheDocument();
     expect(novasynLogo).toBeInTheDocument();
   });
+
+  it('should render partner text in translated form', () => {
+    render(
+      <LanguageProvider>
+        <Hero />
+      </LanguageProvider>
+    );
+
+    expect(screen.getByText('Empresas parceiras')).toBeInTheDocument();
+  });
 });
