@@ -2,7 +2,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Bot, MessageSquare, ShoppingCart, ArrowRight } from "lucide-react";
-
+//aqui é onde eu paro de ser low budget né mano, absurdo... -guisso
 const products = [
   {
     icon: MessageSquare,
