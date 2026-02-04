@@ -3,16 +3,23 @@ const CACHE_NAME = 'novasyn-v' + Date.now();
 const urlsToCache = [
   '/',
   '/index.html',
-  '/src/main.tsx',
-  '/src/index.css',
 ];
 
-// Install event - cache resources
+// Install event - cache resources with better error handling
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then((cache) => cache.addAll(urlsToCache))
+      .then((cache) => {
+        // Cache URLs individually to handle failures gracefully
+        return Promise.allSettled(
+          urlsToCache.map(url => cache.add(url))
+        );
+      })
       .then(() => self.skipWaiting())
+      .catch((error) => {
+        console.error('Cache installation failed:', error);
+        self.skipWaiting();
+      })
   );
 });
 
