@@ -93,10 +93,11 @@ src/
 - ✅ Logos de clientes
 
 #### Portfolio
-- ✅ Listagem de projetos
-- ✅ Badge "Em Desenvolvimento"
-- ✅ Botão "Em Breve" para projetos indisponíveis
-- ✅ Tags de tecnologias
+- ✅ Listagem de projetos (Vende.AI, Novabuild, Xmetal)
+- ✅ Badge "Em Desenvolvimento" em Vende.AI e Novabuild
+- ✅ Botão "Em Breve" para projetos em desenvolvimento
+- ✅ Botão "Ver Projeto" apenas para Xmetal (único disponível)
+- ✅ Tags de tecnologias (IA, Automação, WhatsApp, Dashboard, Engenharia, E-commerce, Analytics)
 - ✅ Estados visuais (opacidade, grayscale)
 
 #### FAQ
@@ -207,7 +208,35 @@ O projeto visa manter:
 - **Functions**: > 80%
 - **Lines**: > 80%
 
-## 🔧 Configuração
+## � Atualizações Fevereiro 2026
+
+### Testes Atualizados
+
+#### Hero.test.tsx
+- ✅ Novo teste para `hero.partners` ("Empresas parceiras")
+- ✅ Valida que texto está traduzido e renderizado
+
+#### Portfolio.test.tsx
+- ✅ Atualizado para refletir 3 projetos: Vende.AI, Novabuild, Xmetal
+- ✅ Novabuild é item2 (em desenvolvimento)
+- ✅ Xmetal é item3 (disponível) com tags corretas
+- ✅ Apenas 1 botão "Ver Projeto" (Xmetal)
+- ✅ Tags atualizadas com Novabuild (Dashboard, Engenharia)
+
+### Componentes Testados com Success
+
+#### Hero
+- ✅ Renderização de título
+- ✅ Renderização de subtítulo
+- ✅ Botões CTA
+- ✅ Logos de parceiros (Xmetal, NovaSyn)
+- ✅ Texto "Empresas parceiras" traduzido
+
+#### Logo3D
+- 🔧 Novo componente (renderização 3D com Three.js)
+- 📝 Testes recomendados: snapshot, carregamento do modelo, renderização
+
+## �🔧 Configuração
 
 ### vitest.config.ts
 
@@ -315,4 +344,4 @@ describe('NewComponent', () => {
 
 ---
 
-**Última atualização**: Novembro 2025
+**Última atualização**: Fevereiro 2026

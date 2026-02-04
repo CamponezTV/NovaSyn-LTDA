@@ -46,39 +46,39 @@ const FAQ = () => {
   ];
 
   return (
-    <section id="faq" className="py-24 bg-gradient-to-b from-background via-[#6D28D9]/5 to-background relative overflow-hidden">
+    <section id="faq" className="py-32 bg-gradient-to-b from-background via-primary/3 to-background relative overflow-hidden">
       {/* Decorative background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-40">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-medium animate-fade-down">
+        <div className="text-center max-w-3xl mx-auto mb-20 space-y-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/10 border border-primary/20 text-primary font-medium">
             <MessageCircle className="w-4 h-4" />
             <span>{t("faq.badge")}</span>
           </div>
           
-          <h2 className="text-4xl md:text-5xl font-bold text-brand-purple-dark dark:text-foreground animate-fade-up">
+          <h2 className="text-5xl md:text-6xl font-bold text-brand-purple-dark dark:text-foreground">
             {t("faq.title")}
           </h2>
-          <p className="text-lg text-muted-foreground animate-fade-up animation-delay-100">
+          <p className="text-xl text-muted-foreground">
             {t("faq.subtitle")}
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto animate-fade-up animation-delay-200">
-          <Accordion type="single" collapsible className="space-y-4">
+        <div className="max-w-4xl mx-auto">
+          <Accordion type="single" collapsible className="space-y-3">
             {faqItems.map((item, index) => (
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className="bg-card/50 backdrop-blur-sm border-2 border-primary/10 rounded-2xl px-6 hover:border-primary/30 transition-all hover-lift"
+                className="bg-background border border-border/50 rounded-lg px-6 hover:border-primary/30 hover:shadow-md transition-all"
               >
-                <AccordionTrigger className="text-left hover:no-underline py-6 text-lg font-semibold text-brand-purple-dark dark:text-foreground hover:text-primary transition-colors">
+                <AccordionTrigger className="text-left hover:no-underline py-4 text-base font-medium text-brand-purple-dark dark:text-foreground hover:text-primary transition-colors">
                   {item.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-foreground/70 pb-6 leading-relaxed">
+                <AccordionContent className="text-foreground/70 pb-4 text-sm leading-relaxed">
                   {item.answer}
                 </AccordionContent>
               </AccordionItem>

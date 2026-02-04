@@ -32,8 +32,8 @@ describe('Portfolio', () => {
     );
     
     expect(screen.getByText('Vende.AI')).toBeInTheDocument();
+    expect(screen.getByText('Novabuild')).toBeInTheDocument();
     expect(screen.getByText('Sistema de Gestão E-commerce')).toBeInTheDocument();
-    expect(screen.getByText('Website Corporativo')).toBeInTheDocument();
   });
 
   it('should show "In Development" badge for VendeAI', () => {
@@ -64,7 +64,7 @@ describe('Portfolio', () => {
     );
     
     const viewProjectButtons = screen.getAllByText('Ver Projeto');
-    expect(viewProjectButtons.length).toBe(2); // Xmetal and NovaSyn
+    expect(viewProjectButtons.length).toBe(1); // Only Xmetal
   });
 
   it('should render project tags', () => {
@@ -77,5 +77,7 @@ describe('Portfolio', () => {
     expect(screen.getByText('IA')).toBeInTheDocument();
     expect(screen.getByText('Automação')).toBeInTheDocument();
     expect(screen.getByText('WhatsApp')).toBeInTheDocument();
+    expect(screen.getByText('Dashboard')).toBeInTheDocument();
+    expect(screen.getByText('Engenharia')).toBeInTheDocument();
   });
 });

@@ -374,7 +374,56 @@ Este projeto é propriedade da Nova Syn LTDA. Todos os direitos reservados.
 
 ---
 
-## 📅 Atualizações Recentes (Novembro 2025)
+## 📅 Atualizações Recentes (Fevereiro 2026)
+
+### 🎨 Melhorias Visuais e UX
+
+#### Hero Section
+- ✅ **Logo 3D animada** - Implementação de modelo GLB com Three.js no hero (base_basic_pbr.glb)
+- ✅ **Lighting dramático** - 8+ fontes de luz com material PBR para visual profissional
+- ✅ **Shadow lighting** - Luzes sombra pretas para criar tensão visual
+- ✅ **Responsividade mobile** - Hero posicionado corretamente com `pt-48` no mobile, header não sobrepõe
+- ✅ **Animações staggered** - Fade-up escalonado em todos os elementos
+
+#### Portfolio Section
+- ✅ **Portfolio corrigido** - Item3 agora é "Sistema de Gestão E-commerce" (Xmetal)
+- ✅ **Novabuild adicionado** - Item2 com descrição correta (Plataforma para engenheiros)
+- ✅ **Tradução "Empresas parceiras"** - Agora internacionalizado com chave `hero.partners`
+
+#### Service Worker
+- ✅ **Cache dinâmico** - Versionamento com `Date.now()` evita conflitos F5 vs Ctrl+F5
+- ✅ **Network-first strategy** - Carrega versão mais fresca automaticamente
+
+### 🔧 Melhorias Técnicas
+
+#### Vite Config
+- ✅ **GLB Asset Support** - `assetsInclude: ["**/*.glb"]` para modelos 3D
+
+#### Animações CSS
+- ✅ **slideInBar** - Animação de escala cubic-bezier(0.34, 1.56, 0.64, 1)
+- ✅ **fade-up** - Fade com delays de 100ms-600ms
+- ✅ **animation-delay utilities** - Classes da-100 até da-600
+
+#### Componentes
+- ✅ **Logo3D.tsx** - Novo componente de modelo 3D com Three.js
+  - Model scale: 0.9
+  - Rotation Y: 0.002 (smooth)
+  - 8+ light sources (ambient, directional, point lights)
+  - Shadow lights para contraste
+
+### 📱 Responsividade
+- ✅ **Mobile hero** - `min-h-screen` no mobile, `lg:h-full` em desktop
+- ✅ **Padding dinâmico** - `pt-48 pb-12 lg:py-0` para acomodar header
+- ✅ **Gap responsivo** - `gap-8 lg:gap-12` entre colunas
+
+### 🧪 Testes Unitários Atualizados
+- ✅ **Hero.test.tsx** - Teste para "Empresas parceiras" traduzido
+- ✅ **Portfolio.test.tsx** - Atualizado para item3 (Xmetal), Novabuild como item2
+- ✅ **Portfolio.test.tsx** - 1 botão "Ver Projeto" (apenas Xmetal), 2 "Em Breve" (VendeAI e Novabuild)
+
+---
+
+## 📅 Atualizações Anteriores (Novembro 2025)
 
 ### 🎨 Melhorias Visuais e UX
 

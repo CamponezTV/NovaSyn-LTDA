@@ -17,34 +17,35 @@ const Portfolio = () => {
       inDevelopment: true,
     },
     {
-      title: t("portfolio.item2.title"),
+      title: "Novabuild",
       description: t("portfolio.item2.description"),
-      image: "/xmetal-logo.jpeg",
-      link: "https://xmetal.novasyn.com.br/",
+      image: "/Novabuild.png",
+      link: "#",
       tags: [t("portfolio.item2.tag1"), t("portfolio.item2.tag2"), t("portfolio.item2.tag3")],
+      inDevelopment: true,
     },
     {
       title: t("portfolio.item3.title"),
       description: t("portfolio.item3.description"),
-      image: novasynLogo,
-      link: "#",
+      image: "/xmetal-logo.jpeg",
+      link: "https://xmetal.novasyn.com.br/",
       tags: [t("portfolio.item3.tag1"), t("portfolio.item3.tag2"), t("portfolio.item3.tag3")],
     },
   ];
 
   return (
-    <section id="portfolio" className="py-24 bg-gradient-hero relative overflow-hidden">
+    <section id="portfolio" className="py-32 bg-background relative overflow-hidden">
       {/* Decorative background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-40">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-brand-purple-dark dark:text-foreground animate-fade-up">
+        <div className="text-center max-w-3xl mx-auto mb-20 space-y-6">
+          <h2 className="text-5xl md:text-6xl font-bold text-brand-purple-dark dark:text-foreground">
             {t("portfolio.title")}
           </h2>
-          <p className="text-lg text-muted-foreground animate-fade-up animation-delay-100">
+          <p className="text-xl text-muted-foreground">
             {t("portfolio.subtitle")}
           </p>
         </div>
@@ -53,16 +54,16 @@ const Portfolio = () => {
           {portfolioItems.map((item, index) => (
             <Card 
               key={index} 
-              className="group overflow-hidden hover-lift border-2 hover:border-primary transition-smooth animate-scale-up bg-card/50 backdrop-blur-sm"
+              className="group overflow-hidden border border-border/50 hover:border-primary/50 transition-all duration-300 animate-scale-up bg-background hover:shadow-lg"
               style={{ animationDelay: `${index * 150}ms` }}
             >
               <div className="aspect-video overflow-hidden relative">
                 {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
                 {/* Development badge */}
                 {item.inDevelopment && (
                   <div className="absolute top-3 right-3 z-20">
-                    <span className="px-3 py-1.5 text-xs font-bold rounded-full bg-gradient-to-r from-[hsl(25_95%_53%)] to-[hsl(142_70%_45%)] text-white shadow-lg animate-pulse">
+                    <span className="px-3 py-1.5 text-xs font-bold rounded-lg bg-primary text-primary-foreground shadow-lg animate-pulse">
                       {t("portfolio.inDevelopment")}
                     </span>
                   </div>
@@ -70,14 +71,14 @@ const Portfolio = () => {
                 <img
                   src={item.image}
                   alt={item.title}
-                  className={`w-full h-full object-cover transition-all duration-700 ${item.inDevelopment ? 'opacity-40 grayscale' : 'group-hover:scale-110 group-hover:rotate-2'}`}
+                  className={`w-full h-full object-cover transition-all duration-500 ${item.inDevelopment ? 'opacity-40 grayscale' : 'group-hover:scale-105'}`}
                 />
               </div>
-              <CardHeader>
-                <CardTitle className="text-xl group-hover:text-primary transition-colors">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg group-hover:text-primary transition-colors">
                   {item.title}
                 </CardTitle>
-                <CardDescription className="leading-relaxed">
+                <CardDescription className="text-sm leading-relaxed">
                   {item.description}
                 </CardDescription>
               </CardHeader>
@@ -86,7 +87,7 @@ const Portfolio = () => {
                   {item.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
-                      className="px-3 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary border border-primary/20 transition-smooth hover:bg-primary/20 hover:scale-105"
+                      className="px-2.5 py-1 text-xs font-medium rounded-md bg-primary/10 text-primary border border-primary/20 transition-smooth hover:bg-primary/20"
                     >
                       {tag}
                     </span>

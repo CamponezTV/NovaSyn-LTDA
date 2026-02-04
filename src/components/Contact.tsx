@@ -189,26 +189,26 @@ const Contact = () => {
   };
 
   return (
-    <section id="contato" className="py-24 bg-background relative overflow-hidden">
+    <section id="contato" className="py-32 bg-background relative overflow-hidden">
       {/* Decorative background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-50">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-2xl mx-auto">
-          <div className="text-center mb-12 space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold text-brand-purple-dark dark:text-foreground animate-fade-up">
+          <div className="text-center mb-16 space-y-6">
+            <h2 className="text-5xl md:text-6xl font-bold text-brand-purple-dark dark:text-foreground">
               {t("contact.title")}
             </h2>
-            <p className="text-lg text-muted-foreground animate-fade-up animation-delay-100">
+            <p className="text-xl text-muted-foreground">
               {t("contact.subtitle")}
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6 animate-scale-up animation-delay-200">
+          <form onSubmit={handleSubmit} className="space-y-5 bg-background border border-border/50 rounded-lg p-8 shadow-md hover:shadow-lg transition-all">
             <div className="space-y-2 animate-fade-up animation-delay-300">
-              <Label htmlFor="name" className="text-foreground font-medium">
+              <Label htmlFor="name" className="text-foreground font-medium text-sm">
                 {t("contact.name")}
               </Label>
               <Input
@@ -218,12 +218,12 @@ const Contact = () => {
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 placeholder={t("contact.namePlaceholder")}
                 required
-                className="h-12 transition-smooth focus:scale-[1.02] focus:shadow-glow"
+                className="h-10 border-border/50 focus:border-primary transition-colors"
               />
             </div>
 
             <div className="space-y-2 animate-fade-up animation-delay-400">
-              <Label htmlFor="email" className="text-foreground font-medium">
+              <Label htmlFor="email" className="text-foreground font-medium text-sm">
                 {t("contact.email")}
               </Label>
               <Input
@@ -234,12 +234,12 @@ const Contact = () => {
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 placeholder={t("contact.emailPlaceholder")}
                 required
-                className="h-12 transition-smooth focus:scale-[1.02] focus:shadow-glow"
+                className="h-10 border-border/50 focus:border-primary transition-colors"
               />
             </div>
 
             <div className="space-y-2 animate-fade-up animation-delay-500">
-              <Label htmlFor="message" className="text-foreground font-medium">
+              <Label htmlFor="message" className="text-foreground font-medium text-sm">
                 {t("contact.message")}
               </Label>
               <Textarea
@@ -249,7 +249,7 @@ const Contact = () => {
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 placeholder={t("contact.messagePlaceholder")}
                 required
-                className="min-h-[150px] transition-smooth focus:scale-[1.02] focus:shadow-glow"
+                className="min-h-[120px] border-border/50 focus:border-primary transition-colors resize-none"
               />
             </div>
 
