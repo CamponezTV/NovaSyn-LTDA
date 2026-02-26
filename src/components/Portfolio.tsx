@@ -12,7 +12,7 @@ const Portfolio = () => {
       title: t("portfolio.item1.title"),
       description: t("portfolio.item1.description"),
       image: "/vendeai-logo.svg",
-      link: "https://projeto-whats.vercel.app/",
+      link: "#",
       tags: [t("portfolio.item1.tag1"), t("portfolio.item1.tag2"), t("portfolio.item1.tag3")],
       inDevelopment: true,
     },
@@ -27,9 +27,10 @@ const Portfolio = () => {
     {
       title: t("portfolio.item3.title"),
       description: t("portfolio.item3.description"),
-      image: "/xmetal-logo.jpeg",
-      link: "https://xmetal.novasyn.com.br/",
+      image: "/logo_NovaSystem1.png",
+      link: "#",
       tags: [t("portfolio.item3.tag1"), t("portfolio.item3.tag2"), t("portfolio.item3.tag3")],
+      inDevelopment: true,
     },
   ];
 

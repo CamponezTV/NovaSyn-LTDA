@@ -18,7 +18,7 @@ const translations = {
     "nav.contact": "Contato",
     "nav.cta": "Fale Conosco",
     "nav.back": "Voltar",
-    
+
     // Hero
     "hero.badge": "Soluções em Tecnologia e IA",
     "hero.title": "Transforme seu negócio com",
@@ -28,7 +28,7 @@ const translations = {
     "hero.products": "Ver Produtos",
     "hero.companies": "Transformando o atendimento de lojas como a sua",
     "hero.partners": "Empresas parceiras",
-    
+
     // Services
     "services.title": "Nossos Serviços",
     "services.subtitle": "Soluções completas para o seu negócio digital",
@@ -40,7 +40,7 @@ const translations = {
     "services.management.description": "Softwares completos para gerenciar e controlar toda sua operação de forma eficiente",
     "services.software.title": "Softwares e Sistemas por Assinatura",
     "services.software.description": "Soluções prontas e customizáveis para resolver problemas específicos do seu negócio",
-    
+
     // About
     "about.title": "Quem Somos",
     "about.subtitle": "Sua parceira em transformação digital",
@@ -56,11 +56,11 @@ const translations = {
     "about.stat1": "Projetos Entregues",
     "about.stat2": "Satisfação dos Clientes",
     "about.stat3": "Suporte Disponível",
-    
+
     // Products
     "products.title": "Nossos Produtos",
     "products.subtitle": "Soluções prontas para acelerar seu negócio",
-    
+
     // Portfolio
     "portfolio.title": "Portfólio",
     "portfolio.subtitle": "Conheça alguns dos projetos que desenvolvemos",
@@ -77,12 +77,12 @@ const translations = {
     "portfolio.item2.tag2": "Engenharia",
     "portfolio.item2.tag3": "Serviço",
     "portfolio.inDevelopment": "Em Desenvolvimento",
-    "portfolio.item3.title": "Sistema de Gestão E-commerce",
-    "portfolio.item3.description": "Sistema completo de gestão para lojas online",
-    "portfolio.item3.tag1": "E-commerce",
+    "portfolio.item3.title": "Nova System",
+    "portfolio.item3.description": "Sistema de gestão para empresas",
+    "portfolio.item3.tag1": "Sistema",
     "portfolio.item3.tag2": "Dashboard",
     "portfolio.item3.tag3": "Analytics",
-    
+
     // Team
     "team.title": "Nossa Equipe",
     "team.subtitle": "Conheça os especialistas que tornam tudo isso possível",
@@ -96,7 +96,7 @@ const translations = {
     "team.giovanni.role": "Vendas & Estratégia",
     "team.giovanni.description": "Cuida das vendas, marketing e escalabilidade para levar a empresa ao próximo nível.",
     "team.mission": "Vimos como a tecnologia pode transformar negócios. Então nos unimos para criar soluções que realmente fazem a diferença.",
-    
+
     // FAQ
     "faq.badge": "Perguntas Frequentes",
     "faq.title": "Dúvidas Frequentes",
@@ -119,7 +119,7 @@ const translations = {
     "faq.q8.answer": "Sim! Atendemos desde pequenos negócios até empresas de médio porte. Nossa abordagem boutique nos permite adaptar nossas soluções para diferentes realidades e orçamentos, sempre mantendo o mesmo nível de qualidade e comprometimento.",
     "faq.cta": "Não encontrou a resposta que procurava?",
     "faq.contactLink": "Entre em contato conosco",
-    
+
     // Contact
     "contact.title": "Vamos Conversar?",
     "contact.subtitle": "Entre em contato e descubra como podemos transformar seu negócio",
@@ -131,7 +131,7 @@ const translations = {
     "contact.messagePlaceholder": "Conte-nos sobre seu projeto...",
     "contact.send": "Enviar Mensagem",
     "contact.success": "Mensagem enviada com sucesso!",
-    
+
     // Footer
     "footer.tagline": "Transformando ideias em soluções digitais",
     "footer.quickLinks": "Links Rápidos",
@@ -140,7 +140,7 @@ const translations = {
     "footer.rights": "Todos os direitos reservados",
     "footer.privacy": "Política de Privacidade",
     "footer.terms": "Termos de Serviço",
-    
+
     // Privacy Policy
     "privacy.title": "Política de Privacidade",
     "privacy.lastUpdated": "Última atualização",
@@ -172,7 +172,7 @@ const translations = {
     "privacy.section7.content": "Você tem o direito de acessar, corrigir ou excluir suas informações pessoais. Também pode solicitar a portabilidade de seus dados ou revogar seu consentimento a qualquer momento. Para exercer esses direitos, entre em contato conosco.",
     "privacy.section8.title": "8. Contato",
     "privacy.section8.content": "Se você tiver dúvidas sobre esta Política de Privacidade ou sobre como tratamos seus dados pessoais, entre em contato através do formulário em nosso site ou pelo e-mail contato@novasyn.com.br",
-    
+
     // Terms of Service
     "terms.title": "Termos de Serviço",
     "terms.lastUpdated": "Última atualização",
@@ -210,7 +210,7 @@ const translations = {
     "nav.contact": "Contact",
     "nav.cta": "Contact Us",
     "nav.back": "Back",
-    
+
     // Hero
     "hero.badge": "Technology & AI Solutions",
     "hero.title": "Transform your business with",
@@ -219,7 +219,7 @@ const translations = {
     "hero.cta": "I want to start a project",
     "hero.products": "View Products",
     "hero.companies": "Transforming the service of stores like yours",
-    
+
     // Services
     "services.title": "Our Services",
     "services.subtitle": "Complete solutions for your digital business",
@@ -231,7 +231,7 @@ const translations = {
     "services.management.description": "Complete software to manage and control your entire operation efficiently",
     "services.software.title": "Software & Systems by Subscription",
     "services.software.description": "Ready-made and customizable solutions to solve specific problems in your business",
-    
+
     // About
     "about.title": "Who We Are",
     "about.subtitle": "Your partner in digital transformation",
@@ -247,11 +247,11 @@ const translations = {
     "about.stat1": "Projects Delivered",
     "about.stat2": "Client Satisfaction",
     "about.stat3": "Support Available",
-    
+
     // Products
     "products.title": "Our Products",
     "products.subtitle": "Ready-made solutions to accelerate your business",
-    
+
     // Portfolio
     "portfolio.title": "Portfolio",
     "portfolio.subtitle": "Check out some of the projects we've developed",
@@ -268,12 +268,12 @@ const translations = {
     "portfolio.item2.tag2": "Engineering",
     "portfolio.item2.tag3": "Service",
     "portfolio.inDevelopment": "In Development",
-    "portfolio.item3.title": "E-commerce Management System",
-    "portfolio.item3.description": "Complete management system for online stores",
-    "portfolio.item3.tag1": "E-commerce",
+    "portfolio.item3.title": "Nova System",
+    "portfolio.item3.description": "Full CRM system cycle complete website",
+    "portfolio.item3.tag1": "System",
     "portfolio.item3.tag2": "Dashboard",
     "portfolio.item3.tag3": "Analytics",
-    
+
     // Team
     "team.title": "Our Team",
     "team.subtitle": "Meet the experts who make it all possible",
@@ -287,7 +287,7 @@ const translations = {
     "team.giovanni.role": "Sales & Strategy",
     "team.giovanni.description": "Takes care of sales, marketing and scalability to take the company to the next level.",
     "team.mission": "We saw how technology can transform businesses. So we joined forces to create solutions that truly make a difference.",
-    
+
     // FAQ
     "faq.badge": "FAQ",
     "faq.title": "Frequently Asked Questions",
@@ -310,7 +310,7 @@ const translations = {
     "faq.q8.answer": "Yes! We serve from small businesses to medium-sized companies. Our boutique approach allows us to adapt our solutions to different realities and budgets, always maintaining the same level of quality and commitment.",
     "faq.cta": "Didn't find the answer you were looking for?",
     "faq.contactLink": "Contact us",
-    
+
     // Contact
     "contact.title": "Let's Talk?",
     "contact.subtitle": "Get in touch and discover how we can transform your business",
@@ -322,7 +322,7 @@ const translations = {
     "contact.messagePlaceholder": "Tell us about your project...",
     "contact.send": "Send Message",
     "contact.success": "Message sent successfully!",
-    
+
     // Footer
     "footer.tagline": "Transforming ideas into digital solutions",
     "footer.quickLinks": "Quick Links",
@@ -331,7 +331,7 @@ const translations = {
     "footer.rights": "All rights reserved",
     "footer.privacy": "Privacy Policy",
     "footer.terms": "Terms of Service",
-    
+
     // Privacy Policy
     "privacy.title": "Privacy Policy",
     "privacy.lastUpdated": "Last updated",
@@ -363,7 +363,7 @@ const translations = {
     "privacy.section7.content": "You have the right to access, correct, or delete your personal information. You can also request data portability or revoke your consent at any time. To exercise these rights, please contact us.",
     "privacy.section8.title": "8. Contact",
     "privacy.section8.content": "If you have questions about this Privacy Policy or how we handle your personal data, contact us through the form on our website or by email at contato@novasyn.com.br",
-    
+
     // Terms of Service
     "terms.title": "Terms of Service",
     "terms.lastUpdated": "Last updated",
