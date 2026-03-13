@@ -97,8 +97,8 @@ const Logo3D = () => {
 
     // Setup DRACOLoader for compressed models
     const dracoLoader = new DRACOLoader();
-    // Using a reliable CDN for draco decoders
-    dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
+    // Using local draco decoders from public folder to avoid CSP issues
+    dracoLoader.setDecoderPath('/draco/');
     dracoLoader.setDecoderConfig({ type: 'js' });
 
     // Load GLB model with DRACO

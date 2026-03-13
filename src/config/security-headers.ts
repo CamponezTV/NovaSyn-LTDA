@@ -8,7 +8,7 @@ export const securityHeaders = {
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' https://fonts.gstatic.com",
     "img-src 'self' data: https: blob:",
-    "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://api.brevo.com https://*.brevo.com blob:",
+    "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://api.brevo.com https://*.brevo.com https://www.gstatic.com blob:",
     "frame-ancestors 'none'",
     "base-uri 'self'",
     "form-action 'self'",
@@ -58,7 +58,7 @@ add_header Permissions-Policy "camera=(), microphone=(), geolocation=(), interes
 add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
 
 # Content Security Policy
-add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://api.brevo.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://api.brevo.com https://*.brevo.com blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" always;
+add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://api.brevo.com https://static.cloudflareinsights.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://api.brevo.com https://*.brevo.com https://www.gstatic.com blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" always;
 
 # Rate Limiting
 limit_req_zone $binary_remote_addr zone=api_limit:10m rate=10r/m;
