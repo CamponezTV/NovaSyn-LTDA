@@ -1,12 +1,37 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { validateFormData, checkHoneypot } from "@/lib/security";
 import { rateLimiter, getClientIdentifier } from "@/lib/rate-limit";
+import { Send } from "lucide-react";
+import { motion, Variants } from "framer-motion";
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 30, filter: "blur(8px)" },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      type: "spring",
+      stiffness: 80,
+      damping: 20,
+    },
+  },
+};
 
 interface ContactFormData {
   name: string;
@@ -189,96 +214,117 @@ const Contact = () => {
   };
 
   return (
-    <section id="contato" className="py-32 bg-background relative overflow-hidden">
-      {/* Decorative background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl"></div>
+    <section id="contato" className="py-16 md:py-32 lg:py-48 bg-background relative overflow-hidden flex items-center justify-center">
+      {/* Absolute Minimalism Background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none dark:hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] max-w-[800px] max-h-[800px] bg-primary/[0.04] rounded-full blur-[120px]"></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-2xl mx-auto">
-          <div className="text-center mb-16 space-y-6">
-            <h2 className="text-5xl md:text-6xl font-bold text-brand-purple-dark dark:text-foreground">
+      <div className="container mx-auto px-6 max-w-7xl relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          
+          <motion.div 
+            className="space-y-8 lg:pr-12 text-center lg:text-left"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl lg:text-[4.5rem] font-bold tracking-tighter text-foreground leading-[1.1]">
               {t("contact.title")}
-            </h2>
-            <p className="text-xl text-muted-foreground">
+            </motion.h2>
+            <motion.div variants={itemVariants} className="h-[1px] w-16 bg-gradient-to-r from-primary/50 to-transparent mx-auto lg:mx-0"></motion.div>
+            <motion.p variants={itemVariants} className="text-xl md:text-2xl font-light text-muted-foreground leading-relaxed md:leading-relaxed">
               {t("contact.subtitle")}
-            </p>
-          </div>
+            </motion.p>
+            <motion.div variants={itemVariants} className="pt-8 hidden lg:block">
+              <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-border/50 bg-white/5 dark:bg-white/[0.02] text-sm text-muted-foreground backdrop-blur-md">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary/80"></span>
+                </span>
+                Disponível para novos projetos
+              </div>
+            </motion.div>
+          </motion.div>
 
-          <form onSubmit={handleSubmit} className="space-y-5 bg-background border border-border/50 rounded-lg p-8 shadow-md hover:shadow-lg transition-all">
-            <div className="space-y-2 animate-fade-up animation-delay-300">
-              <Label htmlFor="name" className="text-foreground font-medium text-sm">
-                {t("contact.name")}
-              </Label>
-              <Input
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                placeholder={t("contact.namePlaceholder")}
-                required
-                className="h-10 border-border/50 focus:border-primary transition-colors"
-              />
-            </div>
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+            whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ type: "spring", stiffness: 50, damping: 20, delay: 0.2 }}
+          >
+            <div className="glass-card p-8 md:p-12 relative overflow-hidden group hover:border-primary/20 hover:shadow-glow transition-all duration-700">
+              {/* Subtle inner glow */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent dark:from-primary/[0.05] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
 
-            <div className="space-y-2 animate-fade-up animation-delay-400">
-              <Label htmlFor="email" className="text-foreground font-medium text-sm">
-                {t("contact.email")}
-              </Label>
-              <Input
-                id="email"
-                name="email"
-                type="email"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                placeholder={t("contact.emailPlaceholder")}
-                required
-                className="h-10 border-border/50 focus:border-primary transition-colors"
-              />
-            </div>
+              <form onSubmit={handleSubmit} className="space-y-6 relative z-10 w-full">
+                <div className="space-y-4">
+                  <div className="group/input relative">
+                    <Input
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      placeholder={t("contact.namePlaceholder")}
+                      required
+                      className="h-14 bg-background/50 border-border/40 focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all text-base px-6 rounded-2xl placeholder:font-light"
+                    />
+                  </div>
 
-            <div className="space-y-2 animate-fade-up animation-delay-500">
-              <Label htmlFor="message" className="text-foreground font-medium text-sm">
-                {t("contact.message")}
-              </Label>
-              <Textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                placeholder={t("contact.messagePlaceholder")}
-                required
-                className="min-h-[120px] border-border/50 focus:border-primary transition-colors resize-none"
-              />
-            </div>
+                  <div className="group/input relative">
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      placeholder={t("contact.emailPlaceholder")}
+                      required
+                      className="h-14 bg-background/50 border-border/40 focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all text-base px-6 rounded-2xl placeholder:font-light"
+                    />
+                  </div>
 
-            {/* Honeypot field - hidden from users, visible to bots */}
-            <div className="hidden" aria-hidden="true">
-              <label htmlFor="website">Website (don't fill)</label>
-              <Input
-                id="website"
-                name="website"
-                type="text"
-                tabIndex={-1}
-                autoComplete="off"
-                value={honeypot}
-                onChange={(e) => setHoneypot(e.target.value)}
-              />
-            </div>
+                  <div className="group/input relative">
+                    <Textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      placeholder={t("contact.messagePlaceholder")}
+                      required
+                      className="min-h-[160px] bg-background/50 border-border/40 focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all text-base px-6 py-5 rounded-2xl resize-none placeholder:font-light"
+                    />
+                  </div>
+                </div>
 
-            <div className="animate-fade-up animation-delay-600">
-              <Button
-                type="submit"
-                variant="hero"
-                size="lg"
-                className="w-full transition-smooth hover:scale-105"
-                disabled={isLoading}
-              >
-                {isLoading ? "Enviando..." : t("contact.send")}
-              </Button>
+                {/* Honeypot field - hidden from users, visible to bots */}
+                <div className="hidden" aria-hidden="true">
+                  <label htmlFor="website">Website (don't fill)</label>
+                  <Input
+                    id="website"
+                    name="website"
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                  />
+                </div>
+
+                <div className="pt-4">
+                  <Button
+                    type="submit"
+                    className="magnetic-button w-full h-14 rounded-2xl bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-glow transition-all font-medium text-base tracking-wide flex items-center justify-center gap-3 group/submit"
+                    disabled={isLoading}
+                  >
+                    {isLoading ? "Enviando..." : t("contact.send")}
+                    {!isLoading && <Send className="w-4 h-4 group-hover/submit:translate-x-1 group-hover/submit:-translate-y-1 transition-transform" strokeWidth={2} />}
+                  </Button>
+                </div>
+              </form>
             </div>
-          </form>
+          </motion.div>
         </div>
       </div>
     </section>

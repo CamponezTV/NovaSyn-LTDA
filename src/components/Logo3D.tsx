@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 import modelPath from '@/assets/3d/base_basic_pbr.glb?url';
 
 const Logo3D = () => {
@@ -21,7 +22,7 @@ const Logo3D = () => {
       0.1,
       1000
     );
-    camera.position.z = 2.5;
+    camera.position.z = 3;
 
     // Renderer
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -94,14 +95,23 @@ const Logo3D = () => {
     logoGroupRef.current = logoGroup;
     scene.add(logoGroup);
 
-    // Load GLB model
+    // Setup DRACOLoader for compressed models
+    const dracoLoader = new DRACOLoader();
+    // Using a reliable CDN for draco decoders
+    dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
+    dracoLoader.setDecoderConfig({ type: 'js' });
+
+    // Load GLB model with DRACO
     const gltfLoader = new GLTFLoader();
+    gltfLoader.setDRACOLoader(dracoLoader);
     
     gltfLoader.load(
       modelPath,
       (gltf) => {
         const model = gltf.scene;
-        model.scale.set(0.9, 0.9, 0.9);
+        // Aumentando a escala para compensar a altura ajustada da div
+        model.scale.set(1.3, 1.3, 1.3);
+        // Ajustando o Y para recentralizar perfeitamente
         model.position.set(0, -0.5, 0);
         logoGroup.add(model);
         console.log('✓ Model loaded with PBR materials:', model);
@@ -149,6 +159,7 @@ const Logo3D = () => {
       if (containerRef.current && renderer.domElement.parentNode === containerRef.current) {
         containerRef.current.removeChild(renderer.domElement);
       }
+      dracoLoader.dispose();
       renderer.dispose();
     };
   }, []);
@@ -156,7 +167,7 @@ const Logo3D = () => {
   return (
     <div 
       ref={containerRef} 
-      className="w-full h-screen flex items-center justify-center overflow-hidden relative"
+      className="w-full h-full flex items-center justify-center overflow-hidden relative"
       style={{ background: 'transparent !important' }}
     />
   );

@@ -6,6 +6,31 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { MessageCircle } from "lucide-react";
+import { motion, Variants } from "framer-motion";
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 30, filter: "blur(8px)" },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      type: "spring",
+      stiffness: 80,
+      damping: 20,
+    },
+  },
+};
 
 const FAQ = () => {
   const { t } = useLanguage();
@@ -46,58 +71,74 @@ const FAQ = () => {
   ];
 
   return (
-    <section id="faq" className="py-32 bg-gradient-to-b from-background via-primary/3 to-background relative overflow-hidden">
+    <section id="faq" className="py-16 md:py-32 lg:py-48 bg-background relative overflow-hidden">
       {/* Decorative background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/[0.03] dark:bg-white/[0.02] rounded-full blur-[100px]"></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-20 space-y-6">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/10 border border-primary/20 text-primary font-medium">
-            <MessageCircle className="w-4 h-4" />
-            <span>{t("faq.badge")}</span>
-          </div>
+      <div className="container mx-auto px-6 max-w-7xl relative z-10">
+        <motion.div 
+          className="flex flex-col items-center max-w-3xl mx-auto mb-16 md:mb-20 space-y-6 text-center"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           
-          <h2 className="text-5xl md:text-6xl font-bold text-brand-purple-dark dark:text-foreground">
+          <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl lg:text-[4.5rem] font-bold tracking-tighter text-foreground leading-[1.1]">
             {t("faq.title")}
-          </h2>
-          <p className="text-xl text-muted-foreground">
+          </motion.h2>
+          <motion.div variants={itemVariants} className="h-[1px] w-16 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></motion.div>
+          <motion.p variants={itemVariants} className="text-lg md:text-xl font-light text-muted-foreground">
             {t("faq.subtitle")}
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="max-w-4xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-3">
+        <motion.div 
+          className="max-w-4xl mx-auto"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+        >
+          <Accordion type="single" collapsible className="space-y-4">
             {faqItems.map((item, index) => (
-              <AccordionItem 
-                key={index} 
-                value={`item-${index}`}
-                className="bg-background border border-border/50 rounded-lg px-6 hover:border-primary/30 hover:shadow-md transition-all"
-              >
-                <AccordionTrigger className="text-left hover:no-underline py-4 text-base font-medium text-brand-purple-dark dark:text-foreground hover:text-primary transition-colors">
-                  {item.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-foreground/70 pb-4 text-sm leading-relaxed">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
+              <motion.div key={index} variants={itemVariants}>
+                <AccordionItem 
+                  value={`item-${index}`}
+                  className="glass-card px-6 md:px-8 py-2 md:py-4 transition-all duration-300 border-border/40 hover:border-primary/30 hover:shadow-glow [&[data-state=open]]:border-primary/50 [&[data-state=open]]:bg-primary/[0.03]"
+                >
+                  <AccordionTrigger className="text-left hover:no-underline py-4 text-base md:text-lg font-medium tracking-tight text-foreground transition-colors group">
+                    <span className="group-hover:translate-x-1 group-hover:text-primary transition-all duration-300">{item.question}</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground pb-6 text-[15px] font-light leading-relaxed">
+                    {item.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              </motion.div>
             ))}
           </Accordion>
-        </div>
+        </motion.div>
 
-        <div className="text-center mt-12 animate-fade-up animation-delay-300">
-          <p className="text-muted-foreground mb-4">
+        <motion.div 
+          className="text-center mt-16 md:mt-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ type: "spring", delay: 0.6 }}
+        >
+          <p className="text-muted-foreground mb-4 font-light">
             {t("faq.cta")}
           </p>
           <a 
             href="#contato" 
-            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold transition-colors group"
+            className="magnetic-button inline-flex items-center gap-2 text-primary-foreground font-medium transition-colors group tracking-wide bg-primary px-8 py-4 rounded-full hover:bg-primary/90 hover:shadow-glow"
           >
             {t("faq.contactLink")}
-            <MessageCircle className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <MessageCircle className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
           </a>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

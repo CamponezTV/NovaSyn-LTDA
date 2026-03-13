@@ -2,403 +2,213 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Animations */
-@keyframes slideInLeftBar {
-  from {
-    transform: translateX(-300px);
-    opacity: 0;
+/* Premium Typography */
+@layer base {
+  :root {
+    /* Pure Light Mode */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
+
+    /* Bento Cards Light */
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 9%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+
+    /* Brand Colors */
+    --primary: 248 57% 56%; /* #6D28D9 Purple */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 168 97% 36%; /* #03B38F Green */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 263 70% 50%;
+
+    --radius: 1.5rem; /* Larger radius for Bento Box */
+
+    /* Premium Gradients */
+    --gradient-hero: radial-gradient(circle at 50% 0%, hsla(263, 70%, 97%, 1) 0%, hsla(0, 0%, 100%, 1) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(263 70% 50%) 0%, hsl(263 70% 40%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(168 97% 36%) 0%, hsl(168 97% 26%) 100%);
+    
+    /* Elegant Shadows */
+    --shadow-soft: 0 10px 40px -10px rgba(109, 40, 217, 0.05); /* Tinted soft shadow with purple */
+    --shadow-glow: 0 0 40px rgba(109, 40, 217, 0.08); /* Purple glow */
+
+    /* Sidebar - keeping it neutral */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 263 70% 50%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 263 70% 50%;
   }
-  to {
-    transform: translateX(0);
-    opacity: 1;
+
+  .dark {
+    /* Cosmos.so / Apple Dark Mode but tinted Deep Purple */
+    --background: 263 60% 4%; /* Deep dark purple */
+    --foreground: 0 0% 98%;
+
+    /* Bento Cards Dark */
+    --card: 263 40% 6%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 263 40% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Brand Colors Dark */
+    --primary: 263 70% 55%; /* Lighter purple for dark mode contrast */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 168 97% 40%; /* Lighter green for dark mode contrast */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 9%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 0 0% 9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* 1px subtle borders */
+    --border: 0 0% 12%;
+    --input: 0 0% 12%;
+    --ring: 263 70% 55%;
+    
+    /* Dark Mode Gradients */
+    --gradient-hero: radial-gradient(ellipse at 50% -20%, hsla(263, 70%, 50%, 0.15), transparent 70%);
+    --gradient-primary: linear-gradient(135deg, hsl(263 70% 55%) 0%, hsl(263 70% 45%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(168 97% 40%) 0%, hsl(168 97% 30%) 100%);
+    
+    /* Elegant Shadows Dark */
+    --shadow-soft: 0 20px 40px -20px rgba(0,0,0,1);
+    --shadow-glow: 0 0 60px rgba(109, 40, 217, 0.15); /* Purple inner glow */
+    
+    --sidebar-background: 0 0% 3%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 263 70% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 263 70% 55%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground tracking-tight scroll-smooth;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Smooth scrolling baseline for scrollytelling */
+  html {
+    scroll-behavior: smooth;
   }
 }
 
-@layer components {
-  .bar-slide-in {
-    animation: slideInBar 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s both;
-    will-change: transform, opacity;
+/* Premium Animations */
+@layer utilities {
+  .glass-panel {
+    @apply bg-white/5 dark:bg-black/40 backdrop-blur-xl border border-white/10 dark:border-white/5 shadow-soft rounded-[2rem];
+  }
+  
+  .glass-card {
+    @apply bg-white/40 dark:bg-white/[0.02] backdrop-blur-md border border-black/[0.05] dark:border-white/[0.05] shadow-soft rounded-3xl transition-all duration-500 hover:bg-white/60 dark:hover:bg-white/[0.04];
   }
 
-  /* Hero section - Firefox fix */
+  /* Text gradient utility */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/50;
+  }
+
+  /* Subdued glow for dark mode elements */
+  .glow-effect {
+    position: relative;
+  }
+  .glow-effect::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(to bottom right, rgba(255,255,255,0.1), transparent);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  .glow-effect:hover::before {
+    opacity: 1;
+  }
+
+  /* Elegant Fade and Slide up */
+  @keyframes fade-slide-up {
+    0% {
+      opacity: 0;
+      transform: translateY(40px) scale(0.95);
+      filter: blur(8px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+  }
+
+  .animate-premium-fade {
+    animation: fade-slide-up 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    will-change: transform, opacity, filter;
+  }
+
+  /* Delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-500 { animation-delay: 500ms; }
+  .delay-700 { animation-delay: 700ms; }
+  .delay-1000 { animation-delay: 1000ms; }
+
+  /* Parallax slow drift */
+  @keyframes drift {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+  }
+  .animate-drift {
+    animation: drift 8s ease-in-out infinite;
+  }
+
+  /* Smooth Micro-interactions */
+  .magnetic-button {
+    @apply transition-transform duration-300 ease-out hover:scale-105 active:scale-95;
+  }
+}
+
+/* Base custom classes kept to not break existing components entirely during transition */
+@layer components {
   .hero-section {
-    height: 100vh;
-    height: 100dvh; /* Dynamic viewport height for mobile */
+    min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 }
 
-@keyframes fadeInBar {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideInLeftBar {
-  from {
-    transform: translateX(-300px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideInBar {
-  from {
-    transform: scaleX(0);
-    opacity: 0;
-  }
-  to {
-    transform: scaleX(1);
-    opacity: 1;
-  }
-}
-
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
-@layer base {
-  :root {
-    --background: 160 50% 96%;
-    --foreground: 270 72% 20%;
-
-    --card: 160 45% 97%;
-    --card-foreground: 270 72% 20%;
-
-    --popover: 160 45% 97%;
-    --popover-foreground: 270 72% 20%;
-
-    --primary: 160 100% 33%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 270 72% 50%;
-    --secondary-foreground: 0 0% 100%;
-
-    --muted: 160 35% 92%;
-    --muted-foreground: 270 10% 45%;
-
-    --accent: 160 100% 33%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 160 40% 85%;
-    --input: 160 40% 85%;
-    --ring: 160 100% 33%;
-
-    --radius: 1rem;
-
-    /* NovaSyn Brand Colors */
-    --brand-green: 160 100% 33%;
-    --brand-purple: 270 72% 50%;
-    --brand-purple-dark: 270 72% 20%;
-    
-    /* Gradients - Light Mode */
-    --gradient-hero: linear-gradient(135deg, hsl(270 25% 98%) 0%, hsl(160 25% 98%) 50%, hsl(270 20% 97%) 100%);
-    --gradient-primary: linear-gradient(135deg, hsl(160 100% 33%) 0%, hsl(160 100% 40%) 100%);
-    --gradient-secondary: linear-gradient(135deg, hsl(270 72% 50%) 0%, hsl(270 72% 60%) 100%);
-    
-    /* Shadows - Light Mode */
-    --shadow-soft: 0 4px 20px -2px hsl(160 100% 33% / 0.15);
-    --shadow-glow: 0 0 40px hsl(160 100% 33% / 0.3);
-
-    --sidebar-background: 160 40% 94%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 270 45% 9%;
-    --foreground: 0 0% 98%;
-
-    --card: 270 35% 14%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 270 35% 14%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 160 100% 40%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 270 72% 55%;
-    --secondary-foreground: 0 0% 100%;
-
-    --muted: 270 25% 20%;
-    --muted-foreground: 270 10% 70%;
-
-    --accent: 160 100% 40%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 62.8% 50%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 270 25% 24%;
-    --input: 270 25% 24%;
-    --ring: 160 100% 40%;
-    
-    /* NovaSyn Brand Colors for Dark Mode */
-    --brand-green: 160 100% 40%;
-    --brand-purple: 270 72% 55%;
-    --brand-purple-dark: 270 40% 85%;
-    
-    /* Gradients for Dark Mode */
-    --gradient-hero: linear-gradient(135deg, hsl(270 40% 8%) 0%, hsl(160 30% 8%) 50%, hsl(270 35% 10%) 100%);
-    --gradient-primary: linear-gradient(135deg, hsl(160 100% 35%) 0%, hsl(160 100% 45%) 100%);
-    --gradient-secondary: linear-gradient(135deg, hsl(270 72% 50%) 0%, hsl(270 72% 65%) 100%);
-    
-    /* Shadows for Dark Mode */
-    --shadow-soft: 0 4px 20px -2px hsl(0 0% 0% / 0.5);
-    --shadow-glow: 0 0 40px hsl(160 100% 40% / 0.3);
-    
-    --sidebar-background: 270 30% 12%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
-@layer utilities {
-  /* Fade animations - Opacity only */
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes fade-up {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  .animate-fade-up {
-    animation: fade-up 0.6s ease-out forwards;
-    will-change: opacity;
-  }
-
-  @keyframes fade-down {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes fade-left {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes fade-right {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  /* Scale animations */
-  @keyframes scale-in {
-    from {
-      opacity: 0;
-      transform: scale(0.9);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-
-  @keyframes scale-up {
-    from {
-      opacity: 0;
-      transform: scale(0.8) translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1) translateY(0);
-    }
-  }
-
-  /* Glow animations */
-  @keyframes glow-pulse {
-    0%, 100% {
-      box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
-    }
-    50% {
-      box-shadow: 0 0 40px hsl(var(--primary) / 0.6);
-    }
-  }
-
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-
-  @keyframes slide-in-bottom {
-    from {
-      opacity: 0;
-      transform: translateY(100px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes shimmer {
-    0% {
-      background-position: -1000px 0;
-    }
-    100% {
-      background-position: 1000px 0;
-    }
-  }
-
-  /* Animation classes */
-  .animate-fade-in {
-    animation: fade-in 0.6s ease-out forwards;
-    will-change: opacity;
-  }
-
-  .animate-fade-down {
-    animation: fade-down 0.6s ease-out forwards;
-    will-change: opacity;
-  }
-
-  .animate-fade-left {
-    animation: fade-left 0.6s ease-out forwards;
-    will-change: opacity;
-  }
-
-  .animate-fade-right {
-    animation: fade-right 0.6s ease-out forwards;
-    will-change: opacity;
-  }
-
-  .animate-scale-in {
-    animation: scale-in 0.6s ease-out forwards;
-  }
-
-  .animate-scale-up {
-    animation: scale-up 0.8s ease-out forwards;
-  }
-
-  .animate-glow-pulse {
-    animation: glow-pulse 2s ease-in-out infinite;
-  }
-
-  .animate-float {
-    animation: float 3s ease-in-out infinite;
-  }
-
-  .animate-slide-in-bottom {
-    animation: slide-in-bottom 0.8s ease-out forwards;
-  }
-
-  /* Stagger delays */
-  .animation-delay-100 {
-    animation-delay: 100ms;
-  }
-
-  .animation-delay-200 {
-    animation-delay: 200ms;
-  }
-
-  .animation-delay-300 {
-    animation-delay: 300ms;
-  }
-
-  .animation-delay-400 {
-    animation-delay: 400ms;
-  }
-
-  .animation-delay-500 {
-    animation-delay: 500ms;
-  }
-
-  .animation-delay-600 {
-    animation-delay: 600ms;
-  }
-
-  /* Smooth transitions */
-  .transition-smooth {
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .transition-bounce {
-    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-
-  /* Hover effects */
-  .hover-lift {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .hover-lift:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  }
-
-  /* Gradient animation */
-  .animate-gradient {
-    background-size: 200% 200%;
-    animation: gradient 8s ease infinite;
-  }
-
-  @keyframes gradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-}
