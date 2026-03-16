@@ -2,7 +2,7 @@ import { Shirt, Dog, Sparkles, Dumbbell, BriefcaseBusiness, Gift, Package, X, Sm
 import { useWhatsAppTranslation } from "@/hooks/use-whatsapp-translation";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import logoQuadBranco from '@/assets/logos/logo_quad_fundo_branco.png';
+import logoQuadBranco from '@/assets/logos/logo_quad_fundo_branco.webp';
 import {
   Carousel,
   CarouselContent,

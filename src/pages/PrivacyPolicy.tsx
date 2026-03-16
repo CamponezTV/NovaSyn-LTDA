@@ -4,7 +4,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
-import novasynLogo from '@/assets/logos/logo_1.png';
+import novasynLogo from "@/assets/logos/logo_1.webp";
 
 const PrivacyPolicy = () => {
   const { t } = useLanguage();

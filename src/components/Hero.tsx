@@ -4,7 +4,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform, Variants } from "framer-motion";
 import Logo3D from "./Logo3D";
-import novasynLogoQuad from "@/assets/logos/logo_quad_fundo_branco.png";
+import novasynLogoQuad from "@/assets/logos/logo_quad_fundo_branco.webp";
 
 const Hero = () => {
   const { t } = useLanguage();

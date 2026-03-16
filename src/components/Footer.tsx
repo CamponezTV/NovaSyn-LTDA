@@ -1,4 +1,4 @@
-import novasynLogo from '@/assets/logos/logo_1.png';
+import novasynLogo from '@/assets/logos/logo_1.webp';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Instagram, Linkedin } from 'lucide-react';
 

@@ -1,6 +1,6 @@
-import arthurImg from "@/assets/team-arthur.jpg";
-import pauloImg from "@/assets/team-paulo.jpg";
-import giovanniImg from "@/assets/team-giovanni.jpg";
+import arthurImg from "@/assets/team-arthur.webp";
+import pauloImg from "@/assets/team-paulo.webp";
+import giovanniImg from "@/assets/team-giovanni.webp";
 import { Code, Cpu, TrendingUp, Handshake } from "lucide-react";
 import { useWhatsAppTranslation } from "@/hooks/use-whatsapp-translation";
 

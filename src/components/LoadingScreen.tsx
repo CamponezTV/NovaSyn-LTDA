@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import novasynLogo from "@/assets/logos/logo_1.png";
+import novasynLogo from "@/assets/logos/logo_1.webp";
 
 interface LoadingScreenProps {
   onLoadingComplete: () => void;

@@ -87,14 +87,14 @@ const translations = {
     "team.title": "Nossa Equipe",
     "team.subtitle": "Conheça os especialistas que tornam tudo isso possível",
     "team.arthur.name": "Arthur",
-    "team.arthur.role": "Dev & Product",
-    "team.arthur.description": "Transforma ideias em realidade, construindo sistemas e interfaces que funcionam perfeitamente.",
+    "team.arthur.role": "Diretor de Tecnologia",
+    "team.arthur.description": "Especialista em desenvolvimento de software e sistemas, responsável pela criação e manutenção.",
     "team.paulo.name": "Paulo",
-    "team.paulo.role": "Automação & IA",
-    "team.paulo.description": "Conecta tudo, integra sistemas e constrói automações inteligentes que fazem a diferença.",
+    "team.paulo.role": "Líder Técnico",
+    "team.paulo.description": "Especialista em automação e inteligência artificial, responsável pela criação de soluções personalizadas.",
     "team.giovanni.name": "Giovanni",
-    "team.giovanni.role": "Vendas & Estratégia",
-    "team.giovanni.description": "Cuida das vendas, marketing e escalabilidade para levar a empresa ao próximo nível.",
+    "team.giovanni.role": "Diretor de Operações",
+    "team.giovanni.description": "Especialista em vendas e marketing, responsável pela gestão de projetos e relacionamento com clientes.",
     "team.mission": "Vimos como a tecnologia pode transformar negócios. Então nos unimos para criar soluções que realmente fazem a diferença.",
 
     // FAQ
@@ -140,6 +140,13 @@ const translations = {
     "footer.rights": "Todos os direitos reservados",
     "footer.privacy": "Política de Privacidade",
     "footer.terms": "Termos de Serviço",
+
+    // Testimonials
+    "testimonials.title": "O que dizem nossos clientes",
+    "testimonials.subtitle": "Experiências reais de quem transformou sua ideia em realidade com a NovaSyn",
+    "testimonials.item1.quote": "A equipe da NovaSyn fez um trabalho excepcional no desenvolvimento do nosso site. Todo o processo foi rápido, organizado e o resultado final ficou extremamente polido e profissional. O site não apenas ficou muito bonito, mas também recebeu diversos comentários positivos da nossa comunidade, o que mostra o cuidado e a qualidade do trabalho realizado. Foi uma ótima experiência trabalhar com a equipe e transformar uma ideia que tínhamos em um projeto real e bem executado. Recomendo fortemente a NovaSyn para quem busca qualidade, agilidade e profissionalismo.",
+    "testimonials.item1.author": "Cassiano \"Cereaw\" Bopp",
+    "testimonials.item1.project": "O Incidente",
 
     // Privacy Policy
     "privacy.title": "Política de Privacidade",
@@ -278,14 +285,14 @@ const translations = {
     "team.title": "Our Team",
     "team.subtitle": "Meet the experts who make it all possible",
     "team.arthur.name": "Arthur",
-    "team.arthur.role": "Dev & Product",
-    "team.arthur.description": "Transforms ideas into reality, building systems and interfaces that work perfectly.",
+    "team.arthur.role": "CTO",
+    "team.arthur.description": "Specializes in web development and systems, responsible for the creation and maintenance of our products.",
     "team.paulo.name": "Paulo",
-    "team.paulo.role": "Automation & AI",
-    "team.paulo.description": "Connects everything, integrates systems and builds intelligent automations that make a difference.",
+    "team.paulo.role": "Tech Lead",
+    "team.paulo.description": "Specializes in automation and artificial intelligence, responsible for the creation of personalized solutions for our clients.",
     "team.giovanni.name": "Giovanni",
-    "team.giovanni.role": "Sales & Strategy",
-    "team.giovanni.description": "Takes care of sales, marketing and scalability to take the company to the next level.",
+    "team.giovanni.role": "COO",
+    "team.giovanni.description": "Specializes in sales, marketing and scalability, responsible for the growth of the company.",
     "team.mission": "We saw how technology can transform businesses. So we joined forces to create solutions that truly make a difference.",
 
     // FAQ
@@ -331,6 +338,13 @@ const translations = {
     "footer.rights": "All rights reserved",
     "footer.privacy": "Privacy Policy",
     "footer.terms": "Terms of Service",
+
+    // Testimonials
+    "testimonials.title": "What our clients say",
+    "testimonials.subtitle": "Real experiences from those who transformed their ideas into reality with NovaSyn",
+    "testimonials.item1.quote": "The NovaSyn team did an exceptional job developing our website. The entire process was fast, organized, and the final result was extremely polished and professional. The site not only looked beautiful but also received several positive comments from our community, which shows the care and quality of the work performed. It was a great experience working with the team and transforming an idea we had into a real and well-executed project. I strongly recommend NovaSyn for those seeking quality, agility, and professionalism.",
+    "testimonials.item1.author": "Cereaw",
+    "testimonials.item1.project": "O Incidente",
 
     // Privacy Policy
     "privacy.title": "Privacy Policy",

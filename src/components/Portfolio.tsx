@@ -42,7 +42,7 @@ const Portfolio = () => {
     {
       title: "Novabuild",
       description: t("portfolio.item2.description"),
-      image: "/Novabuild.png",
+      image: "/Novabuild.webp",
       link: "#",
       tags: [t("portfolio.item2.tag1"), t("portfolio.item2.tag2"), t("portfolio.item2.tag3")],
       inDevelopment: true,
@@ -50,7 +50,7 @@ const Portfolio = () => {
     {
       title: t("portfolio.item3.title"),
       description: t("portfolio.item3.description"),
-      image: "/logoNovaSystem1.png",
+      image: "/logoNovaSystem1.webp",
       link: "#",
       tags: [t("portfolio.item3.tag1"), t("portfolio.item3.tag2"), t("portfolio.item3.tag3")],
       inDevelopment: true,

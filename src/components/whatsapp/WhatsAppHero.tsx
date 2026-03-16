@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles, TrafficCone } from "lucide-react";
 import { useWhatsAppTranslation } from "@/hooks/use-whatsapp-translation";
-import logoQuadBranco from '@/assets/logos/logo_quad_fundo_branco.png';
+import logoQuadBranco from '@/assets/logos/logo_quad_fundo_branco.webp';
 import { useEffect, useState } from "react";
 
 const WhatsAppHero = () => {
