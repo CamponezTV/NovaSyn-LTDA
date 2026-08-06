@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/src/assets/logos/logo_1.png" />
-    <link rel="apple-touch-icon" href="/src/assets/logos/logo_1.png" />
+    <link rel="icon" type="image/png" href="/src/assets/logos/Logo-x-bg.png" />
+    <link rel="apple-touch-icon" href="/src/assets/logos/Logo-x-bg.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#6D28D9" />
+    <meta name="theme-color" content="#E040FB" />
     
     <!-- Primary Meta Tags -->
     <title>NovaSyn - Desenvolvimento de Sites, IA e Automação | Soluções Sob Medida</title>
@@ -92,7 +92,7 @@
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <!-- Fonts: Agrandir Bold + Acumin Variable Concept served locally from /src/assets/fonte/ -->
     <link rel="dns-prefetch" href="https://api.brevo.com" />
     
     <!-- Google Analytics -->
@@ -105,11 +105,13 @@
     </script>
     
     <script>
-      // Prevent flash of unstyled content (FOUC) for dark mode
+      // NovaSyn: apply dark class immediately to prevent FOUC
+      // Dark mode is the native NovaSyn brand experience
       try {
         const theme = localStorage.getItem('theme');
         const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        const resolvedTheme = theme === 'system' || !theme ? systemTheme : theme;
+        // Default to dark if no preference set — NovaSyn is dark-first
+        const resolvedTheme = theme === 'system' ? systemTheme : (theme || 'dark');
         if (resolvedTheme === 'dark') {
           document.documentElement.classList.add('dark');
         }

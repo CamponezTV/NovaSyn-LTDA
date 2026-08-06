@@ -1,10 +1,10 @@
-import { Button } from "@/components/ui/button";
+﻿import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
-import novasynLogo from '@/assets/logos/logo_1.webp';
+import novasynLogo from '@/assets/logos/banner-x-bg.png';
 
 const TermsOfService = () => {
   const { t } = useLanguage();
@@ -137,3 +137,4 @@ const TermsOfService = () => {
 };
 
 export default TermsOfService;
+

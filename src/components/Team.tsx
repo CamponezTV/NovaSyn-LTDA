@@ -40,11 +40,19 @@ const Team = () => {
 
       <div className="container mx-auto px-4 relative z-10 py-8 lg:py-12">
         <div className="text-center max-w-3xl mx-auto mb-8 lg:mb-10 space-y-2 lg:space-y-4">
+          <motion.span
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="inline-block text-[10px] font-semibold text-primary/80 uppercase tracking-[0.25em] mb-2"
+          >
+            Nosso time
+          </motion.span>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-purple-dark dark:text-foreground"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground font-display"
           >
             {t("team.title")}
           </motion.h2>
@@ -66,14 +74,13 @@ const Team = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-4xl mx-auto mb-10 lg:mb-12 relative group"
         >
-          <div className="absolute -inset-1 rounded-2xl transition duration-1000 group-hover:duration-200"></div>
-          <div className="relative rounded-2xl overflow-hidden glass-card border border-white/10 shadow-2xl">
+          <div className="relative rounded-2xl overflow-hidden border border-border/30 shadow-2xl">
             <img 
               src={teamFullImg} 
               alt="NovaSyn Team" 
               className="w-full h-full object-cover object-top aspect-[16/9] md:aspect-[21/9] lg:max-h-[300px] group-hover:scale-105 transition-transform duration-700" 
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent opacity-60"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent opacity-60" />
           </div>
         </motion.div>
 
@@ -95,10 +102,10 @@ const Team = () => {
                   className={member.link ? "no-underline block h-full" : "block h-full"}
                 >
                   <Card 
-                    className="group hover-lift border-2 hover:border-primary transition-smooth bg-card/50 backdrop-blur-sm overflow-hidden h-full"
+                    className="group hover:scale-[1.01] border border-border/40 hover:border-primary/40 transition-all duration-500 bg-card overflow-hidden h-full"
                   >
                     <CardHeader className="text-center p-4 lg:p-6">
-                      <div className="relative w-24 h-24 lg:w-28 lg:h-28 mx-auto mb-3 lg:mb-4 rounded-full overflow-hidden border-4 border-primary/20 group-hover:border-primary transition-smooth">
+                      <div className="relative w-24 h-24 lg:w-28 lg:h-28 mx-auto mb-3 lg:mb-4 rounded-full overflow-hidden border-2 border-border/30 group-hover:border-primary/50 transition-all duration-500">
                         <img
                           src={member.image}
                           alt={member.name}

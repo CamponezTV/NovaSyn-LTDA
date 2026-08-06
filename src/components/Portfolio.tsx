@@ -1,29 +1,17 @@
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 import { motion, Variants } from "framer-motion";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 30, filter: "blur(8px)" },
+  hidden: { opacity: 0, y: 24, filter: "blur(6px)" },
   visible: {
-    opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
-    transition: {
-      type: "spring",
-      stiffness: 80,
-      damping: 20,
-    },
+    opacity: 1, y: 0, filter: "blur(0px)",
+    transition: { type: "spring", stiffness: 80, damping: 18 },
   },
 };
 
@@ -40,110 +28,156 @@ const Portfolio = () => {
       inDevelopment: false,
     },
     {
-      title: "Novabuild",
+      title: t("portfolio.item2.title"),
       description: t("portfolio.item2.description"),
-      image: "/Novabuild.webp",
-      link: "#",
+      image: "/logo_quad_fundo_branco.webp",
+      link: "https://sartoretto.novasyn.com.br/",
       tags: [t("portfolio.item2.tag1"), t("portfolio.item2.tag2"), t("portfolio.item2.tag3")],
-      inDevelopment: true,
+      inDevelopment: false,
     },
     {
       title: t("portfolio.item3.title"),
       description: t("portfolio.item3.description"),
-      image: "/logoNovaSystem1.webp",
-      link: "#",
+      image: "/logo-ocl.png",
+      link: "https://ocladvogados.adv.br/",
       tags: [t("portfolio.item3.tag1"), t("portfolio.item3.tag2"), t("portfolio.item3.tag3")],
-      inDevelopment: true,
+      inDevelopment: false,
     },
   ];
 
   return (
     <section id="portfolio" className="py-16 md:py-32 lg:py-48 bg-background relative overflow-hidden">
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
-        
-        <motion.div 
-          className="flex flex-col items-center max-w-3xl mx-auto mb-12 md:mb-20 space-y-6 text-center"
+        {/* Header */}
+        <motion.div
+          className="flex flex-col items-center max-w-3xl mx-auto mb-14 md:mb-20 space-y-5 text-center"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl lg:text-[4rem] font-bold tracking-tighter text-foreground leading-tight">
+          <motion.div variants={itemVariants}>
+            <span className="ns-label">Portfólio</span>
+          </motion.div>
+          <motion.h2
+            variants={itemVariants}
+            className="text-4xl md:text-5xl lg:text-[4rem] font-bold tracking-tighter text-foreground leading-tight font-display"
+          >
             {t("portfolio.title")}
           </motion.h2>
-          <motion.div variants={itemVariants} className="h-[1px] w-16 bg-gradient-to-r from-transparent via-primary/50 to-transparent dark:hidden"></motion.div>
+          <motion.div variants={itemVariants}>
+            <div className="ns-line w-16" />
+          </motion.div>
           <motion.p variants={itemVariants} className="text-lg md:text-xl font-light text-muted-foreground">
             {t("portfolio.subtitle")}
           </motion.p>
         </motion.div>
 
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
+        {/* Cards */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
         >
           {portfolioItems.map((item, index) => (
-            <motion.div 
-              key={index} 
+            <motion.div
+              key={index}
               variants={itemVariants}
-              className="glass-card group flex flex-col overflow-hidden h-full hover:border-primary/20 hover:shadow-glow transition-all duration-700"
+              className="group flex flex-col overflow-hidden h-full bg-card border border-border/40 transition-all duration-300 hover:border-primary/50 relative"
+              style={{ clipPath: "polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%)" }}
             >
-              <div className="aspect-[4/3] w-full overflow-hidden relative bg-white/[0.02] dark:bg-black/20 flex items-center justify-center p-8">
-                {/* Subtle radial glow behind image */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(109,40,217,0.08)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                
+              {/* Corner notch */}
+              <div
+                className="absolute top-0 right-0 w-[20px] h-[20px] bg-border/60 group-hover:bg-primary/60 transition-colors duration-300 z-20 pointer-events-none"
+                style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%)" }}
+              />
+
+              {/* Image area */}
+              <div className="aspect-[4/3] w-full overflow-hidden relative bg-[#0a0a0a] flex items-center justify-center p-8">
                 {item.inDevelopment && (
-                  <div className="absolute top-4 right-4 z-20">
-                    <span className="px-3 py-1 text-[10px] font-medium tracking-widest uppercase rounded-full bg-secondary/10 text-secondary border border-secondary/20 shadow-[0_0_15px_rgba(3,179,143,0.15)] backdrop-blur-md">
+                  <div className="absolute top-4 left-4 z-20">
+                    <span
+                      className="px-3 py-1 text-[9px] font-bold tracking-widest uppercase border border-primary/40 bg-primary/10 text-primary"
+                      style={{ clipPath: "polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%)" }}
+                    >
                       {t("portfolio.inDevelopment")}
                     </span>
                   </div>
                 )}
+
+                {/* Hard offset glow on hover */}
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                  style={{ background: "radial-gradient(circle at center, rgba(224,64,251,0.08) 0%, transparent 70%)" }}
+                />
+
                 <img
                   src={item.image}
                   alt={item.title}
-                  className={`w-3/4 max-h-[120px] object-contain transition-all duration-700 ease-out z-10 ${item.inDevelopment ? 'opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-70' : 'group-hover:scale-105 drop-shadow-2xl'}`}
+                  className={`w-3/4 max-h-[110px] object-contain transition-all duration-500 ease-out z-10 ${item.inDevelopment
+                    ? "opacity-25 grayscale"
+                    : "group-hover:scale-105"
+                    }`}
+                  style={!item.inDevelopment ? {
+                    filter: "drop-shadow(0 0 0px transparent)",
+                  } : undefined}
                 />
               </div>
 
-              <div className="p-8 md:p-10 flex flex-col flex-grow justify-between border-t border-border/40 relative z-20 bg-background/50 backdrop-blur-md">
-                <div className="space-y-4 mb-8">
-                  <h3 className="text-2xl font-semibold tracking-tight text-foreground transition-colors group-hover:text-primary">
+              {/* Content */}
+              <div className="p-7 md:p-8 flex flex-col flex-grow justify-between border-t border-border/30">
+                <div className="space-y-3 mb-7">
+                  <h3 className="text-xl font-semibold tracking-tight text-foreground group-hover:text-primary transition-colors duration-300 font-display">
                     {item.title}
                   </h3>
-                  <p className="text-[15px] font-light leading-relaxed text-muted-foreground">
+                  <p className="text-sm font-light leading-relaxed text-muted-foreground">
                     {item.description}
                   </p>
                 </div>
 
-                <div className="space-y-8 mt-auto">
+                <div className="space-y-5 mt-auto">
+                  {/* Tags — sharp */}
                   <div className="flex flex-wrap gap-2">
                     {item.tags.map((tag, tagIndex) => (
                       <span
                         key={tagIndex}
-                        className="px-3 py-1 text-xs font-medium tracking-wide rounded-full bg-white/5 dark:bg-white/[0.03] text-muted-foreground border border-border/50 group-hover:border-primary/30 group-hover:text-foreground/80 transition-colors duration-300"
+                        className="px-2.5 py-1 text-[11px] font-medium tracking-wide bg-white/[0.04] text-muted-foreground border border-border/40 group-hover:border-primary/25 transition-colors duration-300"
+                        style={{ clipPath: "polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%)" }}
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
-                  
+
+                  {/* Action */}
                   {item.inDevelopment ? (
-                    <Button variant="outline" className="w-full h-12 rounded-full cursor-not-allowed opacity-40 font-medium tracking-wide bg-transparent border-border" disabled>
+                    <button
+                      disabled
+                      className="w-full h-10 border border-border/30 text-muted-foreground/30 text-sm font-medium cursor-not-allowed"
+                    >
                       {t("portfolio.comingSoon")}
-                    </Button>
+                    </button>
                   ) : (
-                    <Button variant="outline" className="magnetic-button w-full h-12 rounded-full group/btn transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-glow font-medium tracking-wide bg-transparent border-border" asChild>
-                      <a href={item.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-                        {t("portfolio.viewProject")}
-                        <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
-                      </a>
-                    </Button>
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="magnetic-button ns-btn-outline w-full h-10 text-sm font-bold tracking-wide inline-flex items-center justify-center gap-2"
+                    >
+                      {t("portfolio.viewProject")}
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
                   )}
                 </div>
               </div>
+
+              {/* Bottom accent line */}
+              <div
+                className="absolute bottom-0 left-0 h-[2px] w-0 group-hover:w-full transition-all duration-500 bg-primary"
+                style={{ transform: "skewX(-15deg)", transformOrigin: "left" }}
+              />
             </motion.div>
           ))}
         </motion.div>

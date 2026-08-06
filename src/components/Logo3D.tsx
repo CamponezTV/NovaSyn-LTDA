@@ -109,10 +109,24 @@ const Logo3D = () => {
       modelPath,
       (gltf) => {
         const model = gltf.scene;
-        // Aumentando a escala para compensar a altura ajustada da div
-        model.scale.set(1.3, 1.3, 1.3);
-        // Ajustando o Y para recentralizar perfeitamente
-        model.position.set(0, -0.5, 0);
+
+        // Calculate bounding box to auto-center and auto-scale model
+        const box = new THREE.Box3().setFromObject(model);
+        const center = box.getCenter(new THREE.Vector3());
+        const size = box.getSize(new THREE.Vector3());
+
+        // Center pivot point
+        model.position.x = -center.x;
+        model.position.y = -center.y;
+        model.position.z = -center.z;
+
+        // Scale model to fit safely within viewport without clipping
+        const maxDim = Math.max(size.x, size.y, size.z);
+        if (maxDim > 0) {
+          const scale = 2.2 / maxDim;
+          model.scale.set(scale, scale, scale);
+        }
+
         logoGroup.add(model);
         console.log('✓ Model loaded with PBR materials:', model);
       },
@@ -167,7 +181,7 @@ const Logo3D = () => {
   return (
     <div 
       ref={containerRef} 
-      className="w-full h-full flex items-center justify-center overflow-hidden relative"
+      className="w-full h-full flex items-center justify-center relative"
       style={{ background: 'transparent !important' }}
     />
   );

@@ -42,9 +42,11 @@ const Testimonials = () => {
 
   return (
     <section id="depoimentos" className="py-16 md:py-24 lg:py-32 bg-background relative overflow-hidden">
-      {/* Background Decorative Elements */}
-      <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/[0.03] rounded-full blur-[120px] pointer-events-none"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-secondary/[0.03] rounded-full blur-[120px] pointer-events-none"></div>
+      {/* Ambient glow */}
+      <div
+        className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full pointer-events-none"
+        style={{ background: "radial-gradient(circle, rgba(224,64,251,0.04) 0%, transparent 70%)" }}
+      />
 
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         <motion.div 
@@ -54,7 +56,10 @@ const Testimonials = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-foreground leading-tight">
+          <motion.span variants={itemVariants} className="text-[10px] font-semibold text-primary/80 uppercase tracking-[0.25em]">
+            Depoimentos
+          </motion.span>
+          <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-foreground leading-tight font-display">
             {t("testimonials.title")}
           </motion.h2>
           <motion.div variants={itemVariants} className="h-[1px] w-16 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></motion.div>
@@ -77,7 +82,7 @@ const Testimonials = () => {
               target="_blank"
               rel="noopener noreferrer"
               variants={itemVariants}
-              className="block glass-card relative p-6 md:p-10 overflow-hidden group hover:border-primary/20 hover:shadow-glow transition-all duration-700 no-underline"
+              className="block relative rounded-2xl border border-border/40 bg-card p-6 md:p-10 overflow-hidden group hover:border-primary/35 transition-all duration-700 no-underline"
             >
               <div className="absolute top-6 left-6 opacity-5 pointer-events-none group-hover:opacity-10 transition-opacity duration-700">
                 <Quote size={60} className="text-primary rotate-180" />
@@ -94,7 +99,7 @@ const Testimonials = () => {
                       <img src={item.image} alt={item.author} className="w-full h-full object-cover" />
                     </div>
                   ) : (
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center border border-border/50 group-hover:scale-110 transition-transform duration-700">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20 group-hover:scale-110 transition-transform duration-700">
                       <span className="text-xl font-bold text-primary">{item.author.charAt(0)}</span>
                     </div>
                   )}
@@ -105,8 +110,15 @@ const Testimonials = () => {
                 </div>
               </div>
 
-              {/* Subtle inner glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+              {/* Inner hover glow */}
+              <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+                style={{ background: "radial-gradient(ellipse at top left, rgba(224,64,251,0.06) 0%, transparent 60%)" }}
+              />
+              {/* Bottom accent */}
+              <div className="absolute bottom-0 left-0 h-[2px] w-0 group-hover:w-full transition-all duration-500"
+                style={{ background: "linear-gradient(90deg, #E040FB, transparent)" }}
+              />
             </motion.a>
           ))}
         </motion.div>

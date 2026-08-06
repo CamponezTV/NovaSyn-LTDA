@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import novasynLogo from "@/assets/logos/logo_1.webp";
+import logoNoBg from "@/assets/logos/Logo-x-bg.png";
 
 interface LoadingScreenProps {
   onLoadingComplete: () => void;
@@ -10,22 +10,19 @@ const LoadingScreen = ({ onLoadingComplete }: LoadingScreenProps) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Simulate loading progress over 2.5 seconds
-    const duration = 2500;
-    const intervalTime = 20;
+    const duration = 2000;
+    const intervalTime = 16;
     const steps = duration / intervalTime;
     let currentStep = 0;
 
     const timer = setInterval(() => {
       currentStep++;
-      const newProgress = Math.min((currentStep / steps) * 100, 100);
-      setProgress(newProgress);
-
+      const raw = currentStep / steps;
+      const eased = 1 - Math.pow(1 - raw, 2);
+      setProgress(Math.min(eased * 100, 100));
       if (currentStep >= steps) {
         clearInterval(timer);
-        setTimeout(() => {
-          onLoadingComplete();
-        }, 400); // Wait a bit at 100% before triggering exit
+        setTimeout(() => onLoadingComplete(), 300);
       }
     }, intervalTime);
 
@@ -34,50 +31,61 @@ const LoadingScreen = ({ onLoadingComplete }: LoadingScreenProps) => {
 
   return (
     <motion.div
-      className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background/95 backdrop-blur-2xl"
+      className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#080808] overflow-hidden"
       initial={{ opacity: 1 }}
-      exit={{ opacity: 0, y: -20, filter: "blur(10px)" }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      exit={{ opacity: 0, filter: "blur(8px)" }}
+      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className="flex flex-col items-center space-y-8 absolute top-[45%] -translate-y-1/2">
+      {/* Diagonal magenta scan line */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.04]"
+        style={{
+          background:
+            "repeating-linear-gradient(135deg, transparent 0px, transparent 60px, #E040FB 60px, #E040FB 61px)",
+        }}
+      />
+
+      {/* Center */}
+      <div className="relative z-10 flex flex-col items-center gap-10">
+        {/* Logo with hard drop shadow */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8, filter: "blur(10px)" }}
+          initial={{ opacity: 0, scale: 0.6, filter: "blur(20px)" }}
           animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-          transition={{ duration: 1, delay: 0.2, type: "spring", stiffness: 50 }}
+          transition={{ duration: 0.7, type: "spring", stiffness: 80, damping: 15 }}
         >
           <img
-            src={novasynLogo}
+            src={logoNoBg}
             alt="NovaSyn"
-            className="w-20 h-20 md:w-28 md:h-28 object-contain drop-shadow-[0_0_20px_rgba(109,40,217,0.3)] opacity-90"
+            className="w-16 h-16 md:w-20 md:h-20 object-contain"
+            style={{
+              filter: "drop-shadow(0 0 25px rgba(224, 64, 251, 0.45))",
+            }}
           />
         </motion.div>
-        
-        <motion.div 
-          className="flex flex-col items-center space-y-4"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
+
+        {/* Progress */}
+        <motion.div
+          className="flex flex-col items-center gap-3"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
         >
-          {/* Progress number */}
-          <div className="text-sm font-light tracking-[0.2em] text-muted-foreground tabular-nums">
-            {Math.floor(progress).toString().padStart(3, '0')}%
-          </div>
-          
-          {/* Progress bar container */}
-          <div className="w-32 md:w-48 h-[2px] bg-white/10 dark:bg-white/[0.05] rounded-full overflow-hidden">
-            {/* Progress fill line */}
-            <motion.div 
-              className="h-full bg-primary"
+          <span className="text-[10px] font-bold tracking-[0.4em] text-white/25 font-mono tabular-nums">
+            {Math.floor(progress).toString().padStart(3, "0")}%
+          </span>
+
+          {/* Sharp progress bar — no rounding */}
+          <div className="w-32 md:w-44 h-[2px] bg-white/[0.06]">
+            <motion.div
+              className="h-full"
+              style={{ background: "#E040FB" }}
               initial={{ width: "0%" }}
               animate={{ width: `${progress}%` }}
-              transition={{ ease: "linear", duration: 0.1 }}
+              transition={{ ease: "linear", duration: 0.05 }}
             />
           </div>
         </motion.div>
       </div>
-
-      {/* Decorative ambient light */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] max-w-[600px] max-h-[600px] bg-primary/[0.03] rounded-full blur-[120px] pointer-events-none"></div>
     </motion.div>
   );
 };

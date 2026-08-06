@@ -2,7 +2,7 @@ import { Shirt, Dog, Sparkles, Dumbbell, BriefcaseBusiness, Gift, Package, X, Sm
 import { useWhatsAppTranslation } from "@/hooks/use-whatsapp-translation";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import logoQuadBranco from '@/assets/logos/logo_quad_fundo_branco.webp';
+import logoQuadBranco from '/logo_quad_fundo_branco.webp';
 import {
   Carousel,
   CarouselContent,
@@ -14,7 +14,7 @@ import {
 const WhatsAppTargetAudience = () => {
   const { t } = useWhatsAppTranslation();
   const [selectedSegment, setSelectedSegment] = useState<number | null>(null);
-  
+
   const segmentLogos: Record<number, string[]> = {
     0: [],
     1: [],
@@ -38,7 +38,7 @@ const WhatsAppTargetAudience = () => {
       {/* Animated background */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[hsl(25_95%_53%_/_0.1)] rounded-full blur-3xl animate-float -z-10" />
       <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-[hsl(142_70%_45%_/_0.1)] rounded-full blur-3xl animate-float -z-10" />
-      
+
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16 space-y-5">
           <div className="inline-block text-6xl animate-bounce-in">
@@ -51,7 +51,7 @@ const WhatsAppTargetAudience = () => {
             {t("targetAudience.subtitle")}
           </p>
         </div>
-        
+
         <div className="relative mb-12">
           {selectedSegment === null ? (
             // Grid of all segments
@@ -116,10 +116,10 @@ const WhatsAppTargetAudience = () => {
                       <CarouselItem key={idx} className="md:basis-1/3 lg:basis-1/4">
                         <div className="p-2">
                           <div className="rounded-xl overflow-hidden aspect-square bg-card border-2 border-border shadow-lg p-6 flex items-center justify-center">
-                            <img 
-                              src={logo} 
+                            <img
+                              src={logo}
                               alt={`Logo ${idx + 1}`}
-                              className="w-full h-full object-contain" 
+                              className="w-full h-full object-contain"
                             />
                           </div>
                         </div>
@@ -134,7 +134,7 @@ const WhatsAppTargetAudience = () => {
               ) : (
                 // Show CTA button if no logos
                 <div className="flex flex-col items-center justify-center py-16 px-4">
-                  <Button 
+                  <Button
                     size="lg"
                     variant="outline"
                     className="group relative overflow-hidden rounded-full px-8 py-6 hover:border-primary transition-all duration-500"
@@ -153,7 +153,7 @@ const WhatsAppTargetAudience = () => {
             </div>
           )}
         </div>
-        
+
         <p className="text-center text-2xl md:text-3xl font-black bg-gradient-to-r from-[hsl(25_95%_53%)] via-[hsl(142_70%_45%)] to-[hsl(25_95%_53%)] bg-clip-text text-transparent">
           {t("targetAudience.conclusion")}
         </p>

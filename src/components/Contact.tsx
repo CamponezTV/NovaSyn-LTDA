@@ -188,7 +188,7 @@ const Contact = () => {
         title: t("contact.success"),
         description: "Entraremos em contato em breve.",
       });
-      
+
       (e.target as HTMLFormElement).reset();
       setFormData({ name: "", email: "", message: "" });
       setHoneypot("");
@@ -215,90 +215,87 @@ const Contact = () => {
 
   return (
     <section id="contato" className="py-16 md:py-32 lg:py-48 bg-background relative overflow-hidden flex items-center justify-center">
-      {/* Absolute Minimalism Background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none dark:hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] max-w-[800px] max-h-[800px] bg-primary/[0.04] rounded-full blur-[120px]"></div>
+      {/* Ambient glow — always visible */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] max-w-[700px] max-h-[700px] rounded-full"
+          style={{ background: "radial-gradient(circle, rgba(224,64,251,0.06) 0%, transparent 70%)" }}
+        />
       </div>
 
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          
-          <motion.div 
-            className="space-y-8 lg:pr-12 text-center lg:text-left"
+
+          {/* ── Left: Copy ── */}
+          <motion.div
+            className="space-y-8 lg:pr-8 text-center lg:text-left"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
           >
-            <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl lg:text-[4.5rem] font-bold tracking-tighter text-foreground leading-[1.1]">
+            <motion.span variants={itemVariants} className="inline-block text-[10px] font-semibold text-primary/80 uppercase tracking-[0.25em]">
+              Fale conosco
+            </motion.span>
+            <motion.h2
+              variants={itemVariants}
+              className="text-4xl md:text-5xl lg:text-[4.5rem] font-bold tracking-tighter text-foreground leading-[1.1] font-display"
+            >
               {t("contact.title")}
             </motion.h2>
-            <motion.div variants={itemVariants} className="h-[1px] w-16 bg-gradient-to-r from-primary/50 to-transparent mx-auto lg:mx-0"></motion.div>
-            <motion.p variants={itemVariants} className="text-xl md:text-2xl font-light text-muted-foreground leading-relaxed md:leading-relaxed">
+            <motion.div variants={itemVariants} className="ns-line-left w-16 mx-auto lg:mx-0" />
+            <motion.p variants={itemVariants} className="text-xl md:text-2xl font-light text-muted-foreground leading-relaxed">
               {t("contact.subtitle")}
             </motion.p>
-            <motion.div variants={itemVariants} className="pt-8 hidden lg:block">
-              <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-border/50 bg-white/5 dark:bg-white/[0.02] text-sm text-muted-foreground backdrop-blur-md">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary/80"></span>
-                </span>
-                Disponível para novos projetos
-              </div>
-            </motion.div>
           </motion.div>
 
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+          {/* ── Right: Form card ── */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96, filter: "blur(10px)" }}
             whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ type: "spring", stiffness: 50, damping: 20, delay: 0.2 }}
           >
-            <div className="glass-card p-8 md:p-12 relative overflow-hidden group hover:border-primary/20 hover:shadow-glow transition-all duration-700">
-              {/* Subtle inner glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent dark:from-primary/[0.05] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+            <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-card p-8 md:p-12 group hover:border-primary/35 transition-all duration-700">
+              {/* Hover inner glow */}
+              <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+                style={{ background: "radial-gradient(ellipse at top right, rgba(224,64,251,0.06) 0%, transparent 60%)" }}
+              />
 
-              <form onSubmit={handleSubmit} className="space-y-6 relative z-10 w-full">
+              <form onSubmit={handleSubmit} className="space-y-5 relative z-10 w-full">
                 <div className="space-y-4">
-                  <div className="group/input relative">
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder={t("contact.namePlaceholder")}
-                      required
-                      className="h-14 bg-background/50 border-border/40 focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all text-base px-6 rounded-2xl placeholder:font-light"
-                    />
-                  </div>
-
-                  <div className="group/input relative">
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder={t("contact.emailPlaceholder")}
-                      required
-                      className="h-14 bg-background/50 border-border/40 focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all text-base px-6 rounded-2xl placeholder:font-light"
-                    />
-                  </div>
-
-                  <div className="group/input relative">
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder={t("contact.messagePlaceholder")}
-                      required
-                      className="min-h-[160px] bg-background/50 border-border/40 focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all text-base px-6 py-5 rounded-2xl resize-none placeholder:font-light"
-                    />
-                  </div>
+                  <Input
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    placeholder={t("contact.namePlaceholder")}
+                    required
+                    className="h-12 bg-background/60 border-border/40 focus:border-primary/60 focus:ring-1 focus:ring-primary/30 transition-all text-sm px-5 rounded-xl placeholder:font-light"
+                  />
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    placeholder={t("contact.emailPlaceholder")}
+                    required
+                    className="h-12 bg-background/60 border-border/40 focus:border-primary/60 focus:ring-1 focus:ring-primary/30 transition-all text-sm px-5 rounded-xl placeholder:font-light"
+                  />
+                  <Textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    placeholder={t("contact.messagePlaceholder")}
+                    required
+                    className="min-h-[140px] bg-background/60 border-border/40 focus:border-primary/60 focus:ring-1 focus:ring-primary/30 transition-all text-sm px-5 py-4 rounded-xl resize-none placeholder:font-light"
+                  />
                 </div>
 
-                {/* Honeypot field - hidden from users, visible to bots */}
+                {/* Honeypot — hidden from users */}
                 <div className="hidden" aria-hidden="true">
                   <label htmlFor="website">Website (don't fill)</label>
                   <Input
@@ -312,14 +309,18 @@ const Contact = () => {
                   />
                 </div>
 
-                <div className="pt-4">
+                <div className="pt-2">
                   <Button
                     type="submit"
-                    className="magnetic-button w-full h-14 rounded-2xl bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-glow transition-all font-medium text-base tracking-wide flex items-center justify-center gap-3 group/submit"
+                    className="magnetic-button relative group/submit w-full h-12 rounded-xl font-semibold text-sm tracking-wide overflow-hidden border-0 text-black"
+                    style={{ background: "linear-gradient(135deg, #E040FB 0%, #C020C0 100%)" }}
                     disabled={isLoading}
                   >
-                    {isLoading ? "Enviando..." : t("contact.send")}
-                    {!isLoading && <Send className="w-4 h-4 group-hover/submit:translate-x-1 group-hover/submit:-translate-y-1 transition-transform" strokeWidth={2} />}
+                    <span className="relative z-10 flex items-center justify-center gap-2">
+                      {isLoading ? "Enviando..." : t("contact.send")}
+                      {!isLoading && <Send className="w-4 h-4 group-hover/submit:translate-x-0.5 group-hover/submit:-translate-y-0.5 transition-transform" strokeWidth={2} />}
+                    </span>
+                    <div className="absolute inset-0 bg-white/20 translate-y-[100%] group-hover/submit:translate-y-[0%] transition-transform duration-500" />
                   </Button>
                 </div>
               </form>
@@ -332,3 +333,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

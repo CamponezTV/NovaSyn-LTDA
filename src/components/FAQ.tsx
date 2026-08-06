@@ -13,13 +13,13 @@ const containerVariants: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
+      staggerChildren: 0.1,
     },
   },
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 30, filter: "blur(8px)" },
+  hidden: { opacity: 0, y: 24, filter: "blur(6px)" },
   visible: {
     opacity: 1,
     y: 0,
@@ -27,7 +27,7 @@ const itemVariants: Variants = {
     transition: {
       type: "spring",
       stiffness: 80,
-      damping: 20,
+      damping: 18,
     },
   },
 };
@@ -72,30 +72,40 @@ const FAQ = () => {
 
   return (
     <section id="faq" className="py-16 md:py-32 lg:py-48 bg-background relative overflow-hidden">
-      {/* Decorative background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/[0.03] dark:bg-white/[0.02] rounded-full blur-[100px]"></div>
-      </div>
+      {/* Ambient glow */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
+        style={{ background: "radial-gradient(circle, rgba(224,64,251,0.04) 0%, transparent 70%)" }}
+      />
 
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
-        <motion.div 
-          className="flex flex-col items-center max-w-3xl mx-auto mb-16 md:mb-20 space-y-6 text-center"
+        {/* Header */}
+        <motion.div
+          className="flex flex-col items-center max-w-3xl mx-auto mb-16 md:mb-20 space-y-5 text-center"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          
-          <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl lg:text-[4.5rem] font-bold tracking-tighter text-foreground leading-[1.1]">
+          <motion.div variants={itemVariants}>
+            <span className="ns-label">FAQ</span>
+          </motion.div>
+          <motion.h2
+            variants={itemVariants}
+            className="text-4xl md:text-5xl lg:text-[4.5rem] font-bold tracking-tighter text-foreground leading-[1.1] font-display"
+          >
             {t("faq.title")}
           </motion.h2>
-          <motion.div variants={itemVariants} className="h-[1px] w-16 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></motion.div>
+          <motion.div variants={itemVariants}>
+            <div className="ns-line w-16" />
+          </motion.div>
           <motion.p variants={itemVariants} className="text-lg md:text-xl font-light text-muted-foreground">
             {t("faq.subtitle")}
           </motion.p>
         </motion.div>
 
-        <motion.div 
+        {/* Accordion */}
+        <motion.div
           className="max-w-4xl mx-auto"
           variants={containerVariants}
           initial="hidden"
@@ -105,12 +115,15 @@ const FAQ = () => {
           <Accordion type="single" collapsible className="space-y-4">
             {faqItems.map((item, index) => (
               <motion.div key={index} variants={itemVariants}>
-                <AccordionItem 
+                <AccordionItem
                   value={`item-${index}`}
-                  className="glass-card px-6 md:px-8 py-2 md:py-4 transition-all duration-300 border-border/40 hover:border-primary/30 hover:shadow-glow [&[data-state=open]]:border-primary/50 [&[data-state=open]]:bg-primary/[0.03]"
+                  className="bg-card px-6 md:px-8 py-2 border border-border/40 transition-all duration-300 hover:border-primary/40 [&[data-state=open]]:border-primary/60 [&[data-state=open]]:bg-card"
+                  style={{ clipPath: "polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%)" }}
                 >
-                  <AccordionTrigger className="text-left hover:no-underline py-4 text-base md:text-lg font-medium tracking-tight text-foreground transition-colors group">
-                    <span className="group-hover:translate-x-1 group-hover:text-primary transition-all duration-300">{item.question}</span>
+                  <AccordionTrigger className="text-left hover:no-underline py-4 text-base md:text-lg font-medium tracking-tight text-foreground transition-colors group font-display">
+                    <span className="group-hover:translate-x-1 group-hover:text-primary transition-all duration-300">
+                      {item.question}
+                    </span>
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground pb-6 text-[15px] font-light leading-relaxed">
                     {item.answer}
@@ -121,22 +134,23 @@ const FAQ = () => {
           </Accordion>
         </motion.div>
 
-        <motion.div 
-          className="text-center mt-16 md:mt-20"
+        {/* CTA Button */}
+        <motion.div
+          className="text-center mt-16 md:mt-20 flex flex-col items-center gap-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ type: "spring", delay: 0.6 }}
+          transition={{ type: "spring", delay: 0.4 }}
         >
-          <p className="text-muted-foreground mb-4 font-light">
+          <p className="text-muted-foreground font-light text-base">
             {t("faq.cta")}
           </p>
-          <a 
-            href="#contato" 
-            className="magnetic-button inline-flex items-center gap-2 text-primary-foreground font-medium transition-colors group tracking-wide bg-primary px-8 py-4 rounded-full hover:bg-primary/90 hover:shadow-glow"
+          <a
+            href="#contato"
+            className="magnetic-button ns-btn-primary h-14 px-10 text-sm font-bold tracking-wide inline-flex items-center gap-3"
           >
             {t("faq.contactLink")}
-            <MessageCircle className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            <MessageCircle className="w-4 h-4" />
           </a>
         </motion.div>
       </div>
